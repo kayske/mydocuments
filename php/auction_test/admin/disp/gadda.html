@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang	="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="admin.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+<h2>商品追加</h2><br />
+<p>登録が完了しました。</p>
+<div>
+	<table>
+		<tr>
+			<td>ID</td><td><? echo $id; ?></td>
+		</tr>
+		<tr>
+			<td>商品名</td><td><? echo $name; ?></td>
+		</tr>
+		<?
+		for ($i=0; $i<3; $i++) {
+			if(!empty($img[$i])){
+				if (isset($copyComp[$i])) { echo "
+		<tr>
+			<td>画像" . ($i+1) . "</td><td><a href=\"".$imgPath[$i]."\" target=\"_blank\">" . $img[$i] . "</a></td>
+		</tr>";
+				}else{ echo "
+		<tr>
+			<td>画像" . ($i+1) . "</td><td><p class=\"error\"><a href=\"gchdel.php\">画像のアップロードに失敗しました。</a></p></td>
+		</tr>";
+				}
+			}
+		}
+		?>
+		<tr>
+			<td>商品説明</td><td><? echo $description; ?></td>
+		</tr>
+		<tr>
+			<td>ブランドタイトル</td><td><? echo $blandTitle; ?></td>
+		</tr>
+		<tr>
+			<td>ブランドメッセージ</td><td><? echo $blandMessage; ?></td>
+		</tr>
+		<tr>
+			<td>終了時間</td><td><? echo $endDate; ?>終了</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input class="reset" type="button" value="戻る" onClick="location.href='gadd.php'"></td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

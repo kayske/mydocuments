@@ -1,0 +1,5 @@
+メールアドレス		info@axljack.co.jp
+メールサーバー（POP）	pop3.lolipop.jp
+メールサーバー（SMTP）	smtp.lolipop.jp
+メールアカウント	info@axljack.co.jp
+メールパスワード	P2pTzngM

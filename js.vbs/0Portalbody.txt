@@ -1,0 +1,105 @@
+<TABLE border=0 cellSpacing=0 cellPadding=2 width=900>
+<TBODY>
+<TR>
+<TD width=220><IMG alt=VAポータル src="/wpsimg/feplogin/images/VAPortal-login.gif"></TD>
+<TD width=680 align=right><FONT color=white>02</FONT></TD></TR>
+<TR>
+<TD colSpan=2><IMG src="/wpsimg/feplogin/images/line800.gif" width=900 height=4></TD></TR>
+<TR>
+<TD colSpan=2><FONT color=red></FONT></TD></TR></TBODY></TABLE><BR>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width=900>
+<TBODY>
+<TR>
+<TD vAlign=top width=220>
+<TABLE border=0 cellSpacing=0 cellPadding=1 width=210 bgColor=#3f377a>
+<TBODY>
+<TR>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=fsize12b colSpan=2><STRONG><FONT color=#ffffff><IMG align=absMiddle src="/wpsimg/feplogin/images/skin_left01.gif" width=15 height=18>ログイン</FONT></STRONG></TD></TR>
+<TR>
+<DIV class=boxl10></DIV>
+<TD class=fsize12b bgColor=#d7d7f2>
+<FORM method=post name=form1 action=/login.html>Global ID/ID ：<BR><INPUT class=inputForm name=uid> <BR>Password ：<BR><INPUT class=inputForm value="" type=password name=psw autocomplete="off"> <INPUT value=/wps/myportal/?a2lock=1 type=hidden name=uri> <BR><IMG src="/wpsimg/feplogin/images/spacer.gif" width=2 height=15><BR>
+<TABLE>
+<TBODY>
+<TR>
+<TD><INPUT alt=ログイン src="/wpsimg/feplogin/images/btn_login.gif" width=81 height=26 type=image> </TD></FORM></TR></TBODY></TABLE></TD>
+<DIV></DIV></TR>
+<TR>
+<TD class=fsize12b bgColor=#d7d7f2 colSpan=2 noWrap>&nbsp;&nbsp;パスワードを忘れた方は<A class=setHome href="/wids/a2A/G7101" target=_blank>こちら</A></TD></TR>
+<TR>
+<TD class=fsize12b bgColor=#d7d7f2 colSpan=2 noWrap>&nbsp;&nbsp;<A class=setHome href="JavaScript:setStartPage()">このサイトをホームに設定</A></TD></TR>
+<TR>
+<TD bgColor=#d7d7f2 colSpan=2></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD><B><A class=fsize12 color="#000000">　　IDの新規取得はこちら</A></B><BR><INPUT onclick="window.open('http://portal.arrow.mew.co.jp/wids/a2A/','togoid','toolbar=no,directories=no,width=1000,height=700,resizable=yes,status=yes')" value=test alt=統合ID申請システム src="/wpsimg/feplogin/images/togoid.gif" type=image> </TD></TR></TBODY></TABLE>
+<TABLE border=0 cellSpacing=0 cellPadding=1 width=210 bgColor=#3f377a>
+<TBODY>
+<TR>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=fsize12b><STRONG><FONT color=#ffffff><IMG align=absMiddle src="/wpsimg/feplogin/images/skin_left01.gif" width=15 height=18>リンク集</FONT></STRONG></TD></TR>
+<TR>
+<TD class=fsize12 bgColor=#f2f3f7><IMG align=absMiddle src="/wpsimg/feplogin/images/arrow.gif" width=22 height=20> <A href="http://portal.arrow.mew.co.jp/ypgap00/denko/portal/gyoumu_link/index.html" target=_blank>業務リンク</A></TD></TR>
+<TR>
+<TD class=fsize12 bgColor=#f2f3f7><IMG src="/wpsimg/feplogin/images/hasen204.gif" width=204 height=1></TD></TR>
+<TR>
+<TD class=fsize12 bgColor=#f2f3f7><IMG align=absMiddle src="/wpsimg/feplogin/images/arrow.gif" width=22 height=20> <A href="http://panasonic.co.jp/es/" target=_blank>パナソニック株式会社（ＥＳ社）</A></TD></TR>
+<TR>
+<TD class=fsize12 bgColor=#f2f3f7><IMG src="/wpsimg/feplogin/images/hasen204.gif" width=204 height=1></TD></TR>
+<TR>
+<TD class=fsize12 bgColor=#f2f3f7><IMG align=absMiddle src="/wpsimg/feplogin/images/arrow.gif" width=22 height=20> <A href="http://panasonic.biz/es/" target=_blank>ビジネスサイト（ＥＳ社）</A></TD></TR>
+<TR>
+<TD class=fsize12 bgColor=#f2f3f7><IMG src="/wpsimg/feplogin/images/hasen204.gif" width=204 height=1></TD></TR>
+<TR>
+<TD class=fsize12 bgColor=#f2f3f7><IMG align=absMiddle src="/wpsimg/feplogin/images/arrow.gif" width=22 height=20> <A href="http://www.panasonic.co.jp/" target=_blank>パナソニック株式会社</A></TD></TR>
+<TR>
+<TD class=fsize12 bgColor=#f2f3f7><IMG src="/wpsimg/feplogin/images/spacer.gif" width=204 height=1></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+<TD vAlign=top><!--  メンテナンス用html用のiframe --><!--
+<iframe src="/wpsimg/feplogin/unyou.html" frameborder="0" width="665" height="130" marginheight="0" marginwidth="0" ></iframe>
+-->
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1 width=665 bgColor=#858b9f>
+<TBODY>
+<TR>
+<TD>
+<TABLE class=fsize12 border=0 cellSpacing=0 cellPadding=0 width="100%">
+<TBODY>
+<TR>
+<TD class=fsize14b align=middle><IMG alt=お知らせ src="/wpsimg/feplogin/images/info.gif" width=665 height=20></TD></TR>
+<TR>
+<TD class=fsize12 bgColor=#ffffff>
+<DIV class=box10><B><FONT color=#0000ff>■当サイトのご利用にあたって<BR></FONT></B><BR>　当サイトは、「統合ＩＤ申請システム」から「ＶＡポータル」の利用申請登録をしていただいた方がご利用になれます。<BR>　（元籍がＥＳ社の社員は利用申請をしていただかなくてもご利用いただけます。）<BR><BR><B><FONT color=#0000ff>■ログイン時のパスワード変更について<BR></FONT></B><BR>　2013年11月19日より下記会社に所属する社員のログインパスワードはPIWパスワードへ変更になりました。<BR>　・エコソリューションズ社<BR>　・パナソニックインフォメーションシステムズ（株）<BR>　<BR></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+<TD vAlign=top background=/wpsimg/feplogin/images/shadow_side.gif><IMG src="/wpsimg/feplogin/images/shadow_side2.gif" width=5 height=5></TD></TR>
+<TR>
+<TD background=/wpsimg/feplogin/images/shadow_under.gif><IMG src="/wpsimg/feplogin/images/shadow_under2.gif" width=5 height=5></TD>
+<TD><IMG src="/wpsimg/feplogin/images/shadow_corner.gif" width=5 height=5></TD></TR></TBODY></TABLE><!--
+      <br>
+          <iframe src="/wpsimg/feplogin/riyou.html" frameborder="0" width="670" height="150" marginheight="0" marginwidth="0" ></iframe>
+      <br>
+-->
+<TABLE class=fsize12 border=0 cellSpacing=0 cellPadding=2 width=665 height=25>
+<TBODY>
+<TR>
+<TD>【お問合せ先】パナソニックISサポートセンター ( MIC : 7-711- 8787 )</TD>
+<TD align=right></TD></TR></TBODY></TABLE>
+<TABLE class=fsize12 border=0 cellSpacing=0 cellPadding=2 width=665>
+<TBODY>
+<TR>
+<TD colSpan=2><IFRAME height=200 marginHeight=0 src="http://portal.arrow.mew.co.jp/ypgap00/denko/portal/banner/login_banner/index.html" frameBorder=0 width=665 marginWidth=0></IFRAME></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE class=fsize12 border=0 cellSpacing=0 cellPadding=2 width=900>
+<TBODY>
+<TR>
+<TD align=middle><BR>
+<HR>
+本サイトは Internet Explorer6 のブラウザで動作確認しています。<BR>c Panasonic Corporation 2012</TD></TR></TBODY></TABLE>

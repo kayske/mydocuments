@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang	="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="admin.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+<h2>商品追加</h2><br />
+
+<p>下記内容で登録します。</p>
+<div>
+	<form action="gadd.php" method="POST">
+	<table>
+		<tr>
+			<td>商品名</td><td><?echo $name; ?></td>
+			<input type="hidden" name="name" value="<?echo $name; ?>" />
+		</tr>
+		<?for ($i=0; $i<3; $i++) {
+			if (!empty($tmparea[$i])) {
+				echo "
+		<tr>
+			<td>画像" . ($i+1) . "</td><td>" . $_FILES["img".($i+1)]["name"]."
+				<p><img src=\"" . $tmpthumb[$i] . "\" /></p>
+			</td>
+			<input type=\"hidden\" name=\"img" . ($i+1) . "\" value=\"" . $_FILES["img".($i+1)]["name"] . "\" />
+			<input type=\"hidden\" name=\"imgtmp" . ($i+1) . "\" value=\"" . $tmparea[$i] . "\" />
+		</tr>";
+			}
+		}
+		?>
+		<tr>
+			<td>商品説明</td><td><? echo $description; ?></td>
+			<input type="hidden" name="description" value="<?echo $description; ?>" />
+		</tr>
+		<tr>
+			<td>ブランドタイトル</td><td><? echo $blandTitle; ?></td>
+			<input type="hidden" name="blandtitle" value="<?echo $blandTitle; ?>" />
+		</tr>
+		<tr>
+			<td>ブランドメッセージ</td><td><? echo $blandMessage; ?></td>
+			<input type="hidden" name="blandmessage" value="<?echo $blandMessage; ?>" />
+		</tr>
+		<?//enddate追加																										3/6
+		?>
+		<tr>
+			<td>終了時間</td><td><?echo date("Y年m月d日 H時",strtotime($endDate)); ?>終了</td>
+			<input type="hidden" name="enddate" value="<?echo $endDate; ?>" />
+		</tr>
+		<tr>
+			<td colspan="2"><input class="add" type="submit" name="add" />&nbsp;<input class="reset" type="submit" name="reset"  /></td>
+		</tr>
+	</table>
+	<input type="hidden" name="enc" value="あ" />
+	</form>
+</div>
+</body>
+</html>

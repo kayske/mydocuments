@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang	="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="admin.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+<h2>ユーザー情報変更</h2>
+<div>
+	<form action="userchdel.php" method="POST" ENCTYPE="MULTIPART/FORM-DATA">
+	<h3><? echo $name; ?></h3>
+	<table>
+		<tr>
+			<td>ID</td><td><? echo $id; ?></td>
+			<input type="hidden" name="id" value="<? echo $id; ?>" />
+		</tr>
+		<tr>
+			<td>ユーザー名</td><td><input type="text" size="30" name="name" value="<? echo $name; ?>" /></td>
+		</tr>
+		<tr>
+			<td>メールアドレス</td><td><input type="textarea" class="desc" wrap="hard" name="description" value="<? echo $mail; ?>" /></td>
+		</tr>
+		<tr>
+			<td>パスワード</td><td><input type="text" size="30" name="blandtitle" value="<? echo $pass; ?>" /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input class="confirm" type="submit" name="confirm" value="<? echo $id; ?>" /><input class="reset" type="button" value="戻る" onClick="location.href='userchdel.php'"></td>
+		</tr>
+	</table>
+	<input type="hidden" name="enc" value="あ" />
+	</form>
+</div>
+</body>
+</html>

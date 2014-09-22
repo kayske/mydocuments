@@ -1,0 +1,43 @@
+body {
+    width:960px;
+    margin:20px auto;
+    text-align:center;
+    background:url(
+}
+header, nav, section, footer{
+    display:block;
+    border:1px solid #ccc;
+    margin:5px;
+    padding:20px;
+}
+header {
+    text-align:center;
+height:300px;
+    padding:30px;
+}
+header ul, header li {
+    list-style-type:none;
+    display:inline;
+}
+nav {
+//    float:right;
+    text-align:center;
+    padding:
+}
+
+section {
+//    float:right;
+}
+section article {
+    text-align:center;
+}
+footer {
+    text-align: center;
+    padding:5px 20px;
+}
+footer p{
+    display:block;
+    float:left;
+    width:33%;
+    margin:5px auto;
+}

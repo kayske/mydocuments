@@ -1,0 +1,62 @@
+1 <FORM name=f1>
+2	<INPUT name=fKEY_WORD>
+3	<INPUT name=fRECP_NO>
+4	<INPUT name=fRECP_OP>
+	<INPUT value=担当検索 type=button>
+5	<INPUT name=fCUST_ID>
+	<INPUT value=顧客検索 type=button>
+6	<INPUT name=fKSHIMEI>
+7	<INPUT name=fCORP_CD>
+	<INPUT value=会社検索 type=button>
+8	<INPUT name=fCORP_KNAME>
+9	<INPUT name=fMERCHAN_CD>
+	<INPUT value=商品検索 type=button>
+10	<INPUT name=fMERCHAN_NAME>
+	<INPUT value=" 検索 " type=submit>
+	<INPUT type=hidden name=fPAGE>
+
+11	<SELECT name=fSUPPORT>
+		<OPTION selected value=""></OPTION>
+		<OPTION value=01>アメナビ</OPTION>
+		<OPTION value=02>ＩＣＳ</OPTION>
+		<OPTION value=04>ＭＰラーニング</OPTION>
+		<OPTION value=05>ＴＤＩシステムサービ</OPTION>
+		<OPTION value=06>ＰＴ</OPTION>
+		<OPTIO value=07>電工役員向けiPad -</OPTION>
+		<OPTION value=08>マクニカ - パナソニ</OPTION>
+		<OPTION value=09>郵便局・ASTERIA - パ</OPTION>
+		<OPTION value=10>その他</OPTION>
+		<OPTION value=11>ＢＩＺＦＩＴ - パナ</OPTION>
+		<OPTION value=12>東京スカイツリー -</OPTION>
+		<OPTION value=13>京都水族館 - チケッ</OPTION>
+		<OPTION value=14>すみだ水族館 - チケ</OPTION></SELECT>
+12	<SELECT name=fCOPE_STAT_FL>
+		<OPTION value=""></OPTION>
+		<OPTION value=02>対応済</OPTION>
+		<OPTION selected value=ZZZ>※未対応全て</OPTION></SELECT>
+	<INPUT CHECKED type=checkbox name=fRECP_DATE_FL> 受付日：
+13	<INPUT name=fRECP_DATE1> ～ <INPUT name=fRECP_DATE2>
+14	<INPUT name=fCOMPL_DATE1> ～ <INPUT name=fCOMPL_DATE2>
+15	<SELECT name=fCLASS>
+		<OPTION selected value=""></OPTION></SELECT>
+16	<SELECT name=fICLASS>
+		<OPTION selected value=""></OPTION></SELECT>
+17	<SELECT name=fCLASS1>
+		<OPTION selected value=""></OPTION></SELECT>
+18	<SELECT name=fCLASS2>
+		<OPTION selected value=""></OPTION></SELECT>
+19	<INPUT value=" 検索 " type=submit>
+</FORM>
+
+20 <FORM name=namazu>
+	<INPUT type=hidden name=query>
+	<INPUT value=20 type=hidden name=max>
+	<INPUT value=normal type=hidden name=result>
+	<INPUT value=score type=hidden name=sort>
+	<INPUT value=inq type=hidden name=idxname>
+</FORM>
+
+21 <FORM name=f>
+22	<INPUT type=button>
+	<INPUT value="  戻る  " type=button>
+</FORM>

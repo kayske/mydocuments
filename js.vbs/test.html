@@ -1,0 +1,56 @@
+﻿
+<!DOCTYPE html>
+<!-- saved from url=(0013)about:internet -->
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="スクリプト集です">
+<meta name="keywords" content="javascript">
+<meta name="robots" content="noodp,noydir">
+<title>一発起動などのjavascripter</title>
+<!--<script charset="UTF-8" type="text/javascript" src="http://img.travel.rakuten.co.jp/share/common/js/lib/jquery/jquery.js"></script>-->
+<script type="text/javascript"><!--
+
+ var win1,win2;
+//開くURLを指定
+var urlarray = new Object();
+var sizearray = new Object();
+	urlarray['1'] = "http://133.254.134.34/";
+	sizearray['1'] = "left=0";
+	urlarray['2'] = "http://bb4u.excite.co.jp/";
+	sizearray['2'] = "width=1000, height="+screen.availHeight+", left=800, menubar=no, toolbar=no, scrollbars=yes";
+
+//URL開くfunction
+function startopen() {
+	var i = 1;
+//	var i = 2;
+	while (i < 3) {
+		win1 = window.open(urlarray[i],"",sizearray[i]);
+		i = i + 1;
+	}
+window.open("file://Uninas05.uninas.mew.co.jp/un1345i/share/support/コールセンター/個人フォルダ/池辺用/Ct.lnk");
+
+}   
+// --></script> 
+
+</head>
+<body id="TOP">
+<header id="rtSiteHeader">
+<section id="announce">
+<div id="feature">
+<form action="" method="post">
+ <input type="button" value="出勤時起動" onClick="startopen();"><br />
+<br />
+ <input type="button" value="cal" onClick="calcopen();"><br />
+
+</form> 
+
+<p class="pagetop"><a href="#top">このページの先頭へ</a></p>
+</div>
+</section>
+<footer id="grpRakutenLinkArea">
+</footer>
+
+</body>
+</html>

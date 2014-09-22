@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang	="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="admin.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+<h2>商品変更削除</h2>
+<div>
+	<table>
+		<tr>
+			<th>ID</th><th>商品名</th><th width="10">画像1</th><th width="10">画像2</th><th width="10">画像3</th><th>商品説明</th><th>ブランドタイトル</th><th>ブランドメッセージ</th><th width="80">終了時間</th><th width="10">落札フラグ</th><th>落札者</th><th>変更</th><th>削除ボタン</th>
+		</tr>
+		<?for ($i=0; $i<sizeof($id); $i++) {
+		echo "
+		<tr>
+			<td>" . $id[$i] . "</td><td>" . $name[$i] . "</td><td>" . $img[$i][0] . "</td><td>" . $img[$i][1] . "</td><td>" . $img[$i][2] . "</td><td>" . $description[$i] . "</td><td>" . $blandTitle[$i] . "</td><td>" . $blandMessage[$i] . "</td><td>" . $endDate[$i] . "</td>
+			<td>";
+		if ($flBid[$i] == 1){
+			echo "済み</td><td>" . $user_name[$i] . "</td>";
+		}else{
+			echo "未</td><td>&nbsp;</td>";
+		}
+		echo "
+		<form action=\"gchdel.php\" method=\"post\">
+			<td><input class=\"change\" type=\"submit\" name=\"change\" value=\"" . $id[$i] . "\" /></td>
+			<td><input class=\"delete\" type=\"submit\" name=\"delete\" value=\"" . $id[$i] . "\" /></td>
+		</form>
+		</tr>";
+		}?>
+	</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+import java.io.FileReader;
+import java.io.LineNumberReader;
+import java.io.IOException;
+
+public class LoveSeeker {
+  public static void main(String[] args) {
+
+    FileReader in = null;
+    LineNumberReader lnr = null;
+
+    try {
+      in = new FileReader("C:\\java\\test.txt");
+      lnr = new LineNumberReader(in);
+      String line;
+
+
+      while ((line = lnr.readLine()) != null) {
+        System.out.println(line);
+      }
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        lnr.close();
+      } catch (Exception e) {
+      }
+    }
+  }
+}

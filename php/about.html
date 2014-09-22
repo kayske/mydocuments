@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Nikukyu-Punch" />
+<title>シンプル系ホームページテンプレート simple17</title>
+<meta name="description" content="ここにサイト説明を入れます" />
+<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+
+
+<div id="container">
+
+
+<div id="main">
+
+
+<div id="header">
+<h1>h1テキスト入力場所です。titleタグの次に重要なので念入りに考えてワードを盛り込みましょう。</h1>
+</div>
+<!--/header-->
+
+
+<div class="mainbox">
+
+<h2>ホームページビルダーをご利用の方へ（重要）</h2>
+
+<p>ビルダーでテンプレートを開いた場合、htmlの１行目を勝手に変換されてテンプレートが崩れる原因になるので<a href="http://nikukyu-punch.com/file/builder/" target="_blank">こちら</a>を必ずお読み下さい。もしご自身のパソコンで見た時に正常に見えても、他の環境で崩れて見える場合があります。<br />
+もしこのページをビルダーで開いて見ている場合、既にhtmlの１行目が自動変換されている可能性大です。修復方法についても上記ページをご覧下さい。</p>
+
+<h2>文字色やサイズなどの設定は…</h2>
+
+<p>梱包のstyle.cssで行います。メモ帳で編集できます。詳しい説明も書いていますのでお読み下さい。</p>
+
+
+<h2>テンプレートの使い方</h2>
+
+<p><strong class="color1">■titleタグの設定はとても重要です。念入りにワードを選んで適切に入力しましょう。</strong><br />
+まず、htmlソースが見れる状態(メモ帳などで開いてもOK)にして、<br />
+<span class="look">&lt;title&gt;シンプル系ホームページテンプレート simple17&lt;/title&gt;</span><br />
+を編集しましょう。</p>
+
+<p>続いて、下の方の<br />
+<span class="look">Copyright&copy; 2010 サンプルウェブサイト[…省略…]</span><br />
+も編集します。「2010」部分はその年その年にあわせて変更していって下さい。</p>
+
+<p><strong class="color1">■h1タグを変更しましょう。</strong><br /> 
+HP最上段にあるh1タグのテキストを変更しましょう。titleタグの次に重要なワードです。</p>
+
+<p><strong class="color1">■metaタグを変更しましょう。</strong><br />
+htmlソースが見える状態にしてmetaタグを変更しましょう。今はあまり重要視されていませんがSEO対策の一環です。</p>
+
+<p>ソースの上の方に、<br />
+<span class="look">content=&quot;ここにサイト説明を入れます&quot;</span><br />
+という部分がありますので、テキストをサイトの説明文に入れ替えます。検索結果の文面に使われる場合もありますので、見た人がよく分かるような説明文を簡潔に書きましょう。</p>
+
+<p>続いて、その下の行の<br />
+<span class="look">content=&quot;キーワード１,キーワード２,～～～&quot;</span><br />
+も設定します。ここはサイトに関係のあるキーワードを入れる箇所です。10個前後ぐらいあれば充分です。キーワード間はカンマ「,」で区切ります。</p>
+
+<h2>ロゴ画像について</h2>
+<p>ロゴについては、baseフォルダに入っているlogo.gif画像の上に文字をのせ、imagesフォルダに上書きします。これで現在のロゴ画像と置き換わります。上記のサンプルロゴと同じ加工を各500円で承っております。</p>
+<p><strong class="color1">■gif画像がうまく編集できない場合</strong><br />
+ロゴの土台画像はgif形式になっています。そのまま画像ソフトで文字のせすしようとると、色数が限定されてしまうので、まずは増色設定をしてから文字をのせてみましょう。増色設定用のメニューは画像ソフトにより異なるので、分からない場合は画像ソフトのサポートに問い合わせてみましょう。</p>
+
+<h2>背景画像（HPのボックスの外の左下のイメージ写真）について</h2>
+<p>bodyタグの背景画像として左下に固定配置させています。スクロールしても画像が常に見えるのが特徴ですが、あまり濃い色の画像を置いてしまうと、上に文字が重なった場合に読みにくいので注意が必要です。<br />
+画像を変更したい場合は、body_bg.jpgにしてimagesフォルダに上書きして下さい。後は、画像の背景色にあわせて、style.cssのbody項目内のbackground-colorを変更して下さい。</p>
+
+<h2>ヘッダー画像（上のイメージ写真）について</h2>
+<p>自分で画像を用意する場合、幅716px、高さ136pxにし、画像ファイル名を「mainimg.jpg」にしてimagesフォルダに上書きして下さい。現在の画像と置き換わります。</p>
+
+<h2>左側のメインメニューについて</h2>
+<p>リストタグでできています。html側で見ると以下の通り。<br />
+<textarea name="textarea" rows="5" style="width: 90%">
+<ul class="menu">
+<li><a href="index.html">top page</a></li>
+<li><a href="about.html">about</a></li>
+<li><a href="works.html">works</a></li>
+<li><a href="#">blog</a></li>
+<li><a href="link.html">link</a></li>
+</ul>
+</textarea>
+<br />
+上をコピーして左右ブロック内に追加すればいくつもサブメニューのブロックを追加する事ができます。テーマが異なる場合などメニューを分けて使いたい場合にご利用下さい。<br />
+Windows XP以前のパソコンや、メイリオフォントが搭載されていないパソコンをご利用の場合、メニュー内のテキストを幅ギリギリまで使わないように注意して下さい。他の環境で最後のメニューの文字が途中から消えてしまう場合があります。</p>
+
+<h2>当ブロックについて</h2>
+<p><span class="color1">■<strong>当ブロックの見出しについて</strong></span><br />
+当ブロックの一番上にある「ホームページビルダーをご利用の方へ（重要）」などの見出しは以下のようにh2タグで囲めばOKです。<br />
+<input name="textfield3" type="text" style="width: 90%" value="&lt;h2&gt;ホームページビルダーをご利用の方へ（重要）&lt;/h2&gt;" />
+</p>
+<p><span class="color1">■<strong>当ブロック内のテキストは…</strong></span><br />
+段落タグ&lt;p&gt;で囲みましょう。余白が自動で反映されます。</p>
+<p><span class="color1">■<strong>当ブロック内に画像を置く場合…</strong></span><br />
+この場所（#mainブロック内のmainbox内の段落タグ内）内なら、幅688px（↓）まで。<br />
+<img src="images/sample688.gif" alt="" width="688" height="50" /></p>
+<p>この場所だけど、段落タグの外に置くなら幅708px（↓）まで。</p>
+<img src="images/sample708.gif" alt="" width="708" height="50" /><br />
+<p>ちなみに、このブロックの外も使えます。当ページの一番下の「720px」画像参照。</p>
+
+<h2 id="new">トップページの「What's New」コーナーの使い方</h2>
+<p>定義リストタグでできています。h2の見出しを含めた１ブロックをhtmlで書くと以下の通りです。<br />
+<textarea name="textarea" rows="8" style="width: 90%">&lt;h2&gt;What's New&lt;/h2&gt;
+&lt;dl class=&quot;new&quot;&gt;
+&lt;dt&gt;2009/00/00&lt;/dt&gt;
+&lt;dd&gt;ホームページリニューアル&lt;/dd&gt;
+&lt;dt&gt;2009/00/00&lt;/dt&gt;
+&lt;dd&gt;ホームページリニューアル&lt;/dd&gt;
+&lt;dt&gt;2009/00/00&lt;/dt&gt;
+&lt;dd&gt;ホームページリニューアル&lt;/dd&gt;
+&lt;/dl&gt;
+</textarea>
+<br />
+&lt;dl&gt;タグにclass指定で&quot;new&quot;とする事でインラインフレーム(iframe)風のボックスが出来上がります。iframeと違い、実際に同じhtmlファイル内に記載されているのでSEO的にも有効かと思います。<br />
+&lt;dt&gt;には日付、&lt;dd&gt;には内容を書きます。ボックスの大きさなどはstyle.cssで変更して下さい。</p>
+
+<h2>テンプレートの編集サービスについて</h2>
+<p>ロゴやメニューの画像加工やhtmlコーディング、テンプレートのテーマカラー変更やプログラム設置など、テンプレートに関する様々なサポートも承っております。また、当テンプレートのPSD(Photoshop)ファイル販売も行っております。<br />
+<a href="http://nikukyu-punch.com/support.html" target="_blank">詳しくはこちらのテンプレート編集ページをご覧下さい。</a></p>
+
+</div>
+<!--/mainbox-->
+
+<div class="mainbox">
+<p>このボックス（mainbox）は独立して複数作る事ができます。</p>
+</div>
+<!--/mainbox-->
+
+<img src="images/sample720.gif" width="720" height="50" /><br /><br />
+
+<h2>おまけ</h2>
+<p><img src="images/banner.gif" alt="" width="88" height="31" /><br />
+テンプレートとセットのバナーも準備しました。文字なし土台がbaseフォルダに入っていますのでご活用下さい。当サイトでも文字のせ代行承っておりますのでお気軽にご相談下さい。</p>
+
+</div>
+<!--/main-->
+
+
+<div id="side">
+
+<a href="index.html"><img src="images/logo.gif" alt="SAMPLE WEBSITE" name="logo" width="200" height="140" id="logo" /></a><br />
+<ul class="menu">
+<li><a href="index.html">top page</a></li>
+<li><a href="about.html">about</a></li>
+<li><a href="works.html">works</a></li>
+<li><a href="#">blog</a></li>
+<li><a href="link.html">link</a></li>
+</ul>
+
+<h3>当ブロック内のテキストは</h3>
+<p>段落タグ&lt;p&gt;で囲みましょう。余白が自動で反映されます。 </p>
+
+<h3>当ブロック内に画像を置く場合</h3>
+<p>幅200pxまで。</p>
+
+<h3>サポート</h3>
+<p>■HPカラーの変更、お問い合わせフォームの設置、画像加工サービス(500円～)など、ホームページ編集のお手伝いもしております。<br />
+<a href="http://nikukyu-punch.com/support.html" target="_blank">&gt;&gt;詳細はこちら</a></p>
+
+</div>
+<!--/side-->
+
+
+<div id="footer">
+Copyright&copy; 2010 サンプルウェブサイト All Rights Reserved.<br />
+<a href="http://nikukyu-punch.com/" target="_blank">Template design by Nikukyu-Punch</a>
+</div>
+<!--/footer-->
+
+
+</div>
+<!--/container-->
+
+
+</body>
+</html>

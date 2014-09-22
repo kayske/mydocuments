@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang	="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="admin.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+<h2>入札者変更削除</h2>
+<div>
+	<table>
+		<tr>
+			<th>ID</th><th>お名前</th><th width="10">メールアドレス</th><th width="10">パスワード</th><th>変更</th><th>削除ボタン</th>
+		</tr>
+		<?for ($i=0; $i<sizeof($id); $i++) {
+		echo "
+		<tr>
+			<td>" . $id[$i] . "</td><td>" . $name[$i] . "</td><td>" . $mail[$i] . "</td><td>" . $pass[$i] . "</td>
+		<form action=\"gchdel.php\" method=\"post\">
+			<td><input class=\"change\" type=\"submit\" name=\"change\" value=\"" . $id[$i] . "\" /></td>
+			<td><input class=\"delete\" type=\"submit\" name=\"delete\" value=\"" . $id[$i] . "\" /></td>
+		</form>
+		</tr>";
+		}?>
+	</table>
+</div>
+</body>
+</html>

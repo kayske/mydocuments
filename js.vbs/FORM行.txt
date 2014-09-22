@@ -1,0 +1,5 @@
+<FORM method=post name=f1 action=inqhistory.asp?mode=>
+<TD colSpan=2 align=right><INPUT value=" 検索 " type=submit></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM></TD><!-- 高速全文検索用フォーム -->
+<FORM method=get name=namazu action=""><INPUT type=hidden name=query> <INPUT value=20 type=hidden name=max> <INPUT value=normal type=hidden name=result> <INPUT value=score type=hidden name=sort> <INPUT value=inq type=hidden name=idxname> </FORM>
+<FORM name=f>
+<TD class=nomal noWrap align=right><INPUT class=btn onclick=JavaScript:document.f1.fPAGE.value=1;document.f1.submit(); value=" 再読込 " type=button> <INPUT class=btn onclick=JavaScript:location.href=parent.fr_top.window.url; value="  戻る  " type=button> </TD></TR></FORM></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- プルダウン切り替え様フレーム -->

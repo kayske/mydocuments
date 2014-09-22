@@ -1,0 +1,103 @@
+#index {
+//	width:100%;
+//	height:100%;
+	padding:10px;
+}
+
+#top{
+	height:10%;
+}
+#left {
+//	position:static;
+	float:left;
+	width:15%;
+//	height:100%;
+//	border:solid 1px;
+}
+
+#right {
+//	position:relative;
+	float:left;
+	width:85%;
+	height:90%;
+//	border:solid 1px;
+
+}
+
+#right iframe {
+	overflow:visible;
+	height:90%;
+	border:none;
+}
+
+table {
+	border-collapse: collapse; /* 枠線の表示方法 */
+	border: 1px #1C79C6 solid; /* テーブル全体の枠線（太さ・色・スタイル） */
+}
+
+td,th {
+	padding:5px;
+	border: 1px #1C79C6 solid; /* セルの枠線（太さ・色・スタイル） */
+}
+
+.error {
+	color: #ff0000;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+}
+.desc {
+width: 300px;
+height: 10em;
+}
+
+input.confirm {
+	cursor: pointer;
+	width: 80px;
+	height: 30px;
+	border: none;
+	text-indent: -9999px;
+	background: url(./img/confirm.gif) no-repeat 0 0;
+}
+ 
+/*input.confirm:hover {
+	background: url(./img/confirm.gif) no-repeat 0 -50px;
+}*/
+input.add {
+	cursor: pointer;
+	width: 80px;
+	height: 30px;
+	border: none;
+	text-indent: -9999px;
+	background: url(./img/add.gif) no-repeat 0 0;
+}
+ 
+input.reset {
+	cursor: pointer;
+	width: 80px;
+	height: 30px;
+	border: none;
+	text-indent: -9999px;
+	background: url(./img/back.gif) no-repeat 0 0;
+}
+ 
+input.delete {
+	cursor: pointer;
+	width: 80px;
+	height: 30px;
+	border: none;
+	text-indent: -9999px;
+	background: url(./img/delete.gif) no-repeat 0 0;
+}
+input.change {
+	cursor: pointer;
+	width: 80px;
+	height: 30px;
+	border: none;
+	text-indent: -9999px;
+	background: url(./img/change.gif) no-repeat 0 0;
+}
+
+span.valid {
+	color:#FF0000;
+	font-weight:bold;
+}

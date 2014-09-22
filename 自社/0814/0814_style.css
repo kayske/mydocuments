@@ -1,0 +1,15 @@
+body {
+	background:#eeeeee;
+}
+header {
+	width: 243px;
+	height: 243px;
+	margin:auto;
+	background:url("0814.png");
+}
+h1 a {
+	text-indent: -9999px;
+	display: block;
+	width: 243px;
+	height: 243px;
+}

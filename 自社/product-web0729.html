@@ -1,0 +1,256 @@
+<style type="text/css">
+ <!--
+
+        p {margin:0 auto;} 
+
+ -->
+ </style>
+【php】ブログとFacebookからRSSを取得してサイトに表示
+
+久しぶりの更新です。
+WEBサイトの「更新情報」の欄に
+ブログ（Livedoorブログ）とFacebookどちらも更新情報を載せたい。
+という要望を頂きました。
+
+キーワードとしては、
+php5、simplexml_load_file、FacbookのRSS、LivedoorブログのRSS
+当たりかと思います。
+
+環境・参考ページは下にまとめてます。
+
+<h3>概要、プログラムの作り</h3>
+今回はDBを使わずにRSSの情報を整形するというやり方をしました。
+
+必要な情報は、
+「更新日」、「タイトル」、「リンク先」、「ブログorFacebook」の4つだけです。
+
+流れとしては、
+・ブログのRSSから各情報を取得
+↓
+・オブジェクトに格納
+↓
+・FacebookのRSSから各情報を取得
+↓
+・同じオブジェクトに追加格納
+↓
+・投稿日時順で並べ替え
+↓
+・最新の5つをHTMLで表示
+となります。
+
+では、制作開始。
+
+<h3>LivedoorブログのRSSから情報を取得、格納</h3>
+使うのは、simplexml_load_fileです。
+構文はこんな感じ。
+<blockquote class="tr_bq">
+<p>SimpleXMLElement simplexml_load_file ( string $filename [, string $class_name = "SimpleXMLElement" [, int $options = 0 [, string $ns = "" [, bool $is_prefix = false ]]]] )</p>
+<p>指定したファイルの中の整形式 XML ドキュメントをオブジェクトに変換します。</p>
+</blockquote>
+出典：<a href="http://php.net/manual/ja/function.simplexml-load-file.php" target="_blank">PHP: simplexml_load_file - Manual</a>
+
+こんな感じに作りました。
+
+<blockquote class="tr_bq">
+<p>//ブログフィード<br>
+$url = 'http://******.blog.jp/index.rdf';<br>
+$xml = simplexml_load_file($url); <br>
+$i = 0;<br>
+foreach ($xml-&gt;item as $item) {</p>
+<p style="padding-left: 1em;">$blog = array();<br>
+	$blog['type'] = 'ブログ更新';<br>
+	$blog['link'] = (string)$item-&gt;link;<br>
+	$title = (string)$item-&gt;title;<br>
+	$blog['title'] = $blog['type'] . '&nbsp;|&nbsp;' . mb_strimwidth($title, 0, 70, '...');<br>
+	$date = $item-&gt;children('http://purl.org/dc/elements/1.1/')-&gt;date;<br>
+	$blog['date'] = date('YmdHi', strtotime($date));<br>
+	$data[] = $blog;<br>
+	$i++;<br>
+	if ($i &gt; 4){break;}</p>
+<p>}</p>
+</blockquote>
+
+<h4>LivedoorブログのRSSを取得</h4>
+ソースからURLを取得。
+&lt;link rel="alternate" type="application/rss+xml" title="RSS"&nbsp;の部分から。
+<blockquote class="tr_bq">
+<p>http://******.blog.jp/index.rdf</p>
+</blockquote>
+RSSは1.0です。
+
+<h4>オブジェクトに格納</h4>
+RSSから関数simplexml_load_fileで情報を取ってきて、
+必要情報のみforeachで格納していきます。
+
+「ブログorFacebook」を識別する用に$blog['type']を作りました。
+HTMLにも表示される文言です
+<blockquote class="tr_bq">
+<p>$blog['type'] = 'ブログ更新';</p>
+</blockquote>
+
+タイトルは文字数制限を70文字にかけています。
+<blockquote class="tr_bq">
+<p>$title = (string)$item-&gt;title;<br>
+$blog['title'] = $blog['type'] . '&nbsp;|&nbsp;' . mb_strimwidth($title, 0, 70, '...');<br></p>
+</blockquote>
+
+日時はRSSの中で「dc:」が入っているデータのため、そのままでは格納できません。
+RSSのソースの上の方に「dc:」の参照元があります。
+<blockquote class="tr_bq">
+<p>&lt;rdf:RDF ～中略～ xmlns:dc="http://purl.org/dc/elements/1.1/" ～中略～&gt;</p>
+</blockquote>
+ここを通して取得するようです。
+<blockquote class="tr_bq">
+<p>$date = $item-&gt;children('http://purl.org/dc/elements/1.1/')-&gt;date;</p>
+</blockquote>
+
+参考：<a href="http://www.softel.co.jp/blogs/tech/archives/4105" target="_blank">【php】SimpleXMLでRSSを取得する</a>
+RDFや「dc:（名前空間接頭辞）」については<a href="http://www.kanzaki.com/docs/sw/rdf-model.html" target="_blank">RDF -- リソース表現のフレームワーク</a>を参照。
+
+続いて、Facebookです。
+
+<h3>FacebookのRSSから情報を取得、追加格納</h3>
+こちらも使うのは同じくsimplexml_load_fileです。
+
+<blockquote class="tr_bq">
+<p>//facebookフィード<br>
+ini_set('user_agent', </p>
+<p style="padding-left: 3em;">'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3');</p>
+<p>$fbstr=file_get_contents('https://www.facebook.com/feeds/page.php?id=***************&amp;format=rss20'); <br>
+$fbxml = simplexml_load_string($fbstr, 'SimpleXMLElement', LIBXML_NOCDATA);<br>
+$i = 0;<br>
+foreach ($fbxml-&gt;channel-&gt;item as $item) {</p>
+<p style="padding-left: 1em;">$fb = array();<br>
+	$fb['type'] = 'facebook更新';<br>
+	$fb['link'] = (string)$item-&gt;link;<br>
+	$title = (string)$item-&gt;title;<br>
+	$title = html_entity_decode($title);<br>
+	$title = mb_convert_encoding($title, 'UTF-8', 'HTML-ENTITIES');<br>
+	$title = str_replace(array("\r\n", "\r", "\n"), '', $title);<br>
+	$fb['title'] = $fb['type'] . '&nbsp;|&nbsp;' . mb_strimwidth($title, 0, 55, '...', 'UTF-8');<br>
+	$fb['date'] = date ( 'YmdHi',strtotime ( $item-&gt;pubDate ) );<br>
+	$data[] = $fb;<br>
+	$i++;<br>
+	if ($i &gt; 4){break;}</p>
+<p>}</p>
+</blockquote>
+
+<h4>FacebookのRSSを取得</h4>
+FacebookはIDが分かればRSSのURLが分かります。
+
+IDの確認方法は、
+<a href="http://beginner01.com/marketingwp/facebook%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BCid%E3%82%92%E7%B0%A1%E5%8D%98%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95-390.html" target="_blank">FacebookのユーザーIDを簡単に確認する方法</a>を参照。
+
+IDが分かれば******の部分をID番号にしたURLがRSSです。
+<blockquote class="tr_bq">
+<p>https://www.facebook.com/feeds/page.php?id=***************&amp;format=rss20</p>
+</blockquote>
+
+<h4>user_agentを指定して情報を取得</h4>
+Facebookはプログラムの関数によるアクセスができない様にになっているため、
+user_agentをブラウザということにして情報を取得します。
+
+<blockquote class="tr_bq">
+<p>ini_set('user_agent', </p>
+<p style="padding-left: 3em;">'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3');</p>
+<p>$fbstr=file_get_contents('https://www.facebook.com/feeds/page.php?id=***************&amp;format=rss20'); </p>
+</blockquote>
+
+参考は、<a href="http://www.hiromedo.com/memo-to-log/?p=371" target="_blank">Facebookページの書き込みをRSSで取得してPHPで処理する</a>
+
+<h4>同じオブジェクトに追加で格納</h4>
+ここからはブログとほぼ同じです。simplexml_load_fileで情報取得、foreachで格納。
+
+「ブログorFacebook」識別は$fb['type']です。
+
+<h5>文字参照を変換</h5>
+RSSに入っている「タイトル」情報がそのままでは文字参照（&amp;&#35;x3053;など）となっています。
+関数mb_convert_encodingで変換します。
+
+その後、html_entity_decodeでHTMLタグを削除（デコード）、関数str_replaceで改行などを削除します。
+最後に文字数制限して格納します。
+
+参考は、<a href="http://www.programming-magic.com/20080328235111/" target="_blank">数値文字参照と日本語文字列の相互変換をする【PHP】</a>
+<blockquote class="tr_bq">
+<p>$title = (string)$item-&gt;title;<br>
+$title = mb_convert_encoding($title, 'UTF-8', 'HTML-ENTITIES');<br>
+$title = html_entity_decode($title);<br>
+$title = str_replace(array("\r\n", "\r", "\n"), '', $title);<br>
+$fb['title'] = $fb['type'] . '&nbsp;|&nbsp;' . mb_strimwidth($title, 0, 55, '...', 'UTF-8');</p>
+</blockquote>
+
+HTMLに記述する際に、別々で表示するなら別のオブジェクトに格納した方がいいのですが、
+今回要望として「同じ更新情報欄で表示したい」というのがありました。
+
+なので、同じ$data[]の配列に追加で格納します。
+<blockquote class="tr_bq">
+<p>$data[] = $fb;</p>
+</blockquote>
+
+<h3>投稿日時順で並べ替え</h3>
+$data[]に格納したブログ、Facebookそれぞれの情報を投稿日時順（降順）で並べ替えます。
+今回は<a href="http://freefielder.jp/blog/2008/12/phpusort.html" target="_blank">PHPで、オブジェクトの配列をソートする。</a>を参考に、関数usortを使いました。
+
+<blockquote class="tr_bq">
+<p>$sdata = usort( $data , 'cmp_date_type' );<br>
+<br>
+function cmp_date_type( $a , $b){</p>
+<p style="padding-left: 1em;">$cmp = strcmp( $a['date'] , $b['date'] ); <br>
+	if( $cmp == 0 ){</p>
+	<p style="padding-left: 2em;">$cmp = strcmp( $a['type'] , $b['type'] );<br>
+		}elseif( $cmp &lt; 0){<br>
+		return 1;<br>
+		}elseif( $cmp &gt; 0){<br>
+		return -1;</p>
+<p style="padding-left: 1em;">}</p>
+<p>}</p>
+</blockquote>
+
+functionでソート条件を設定して、usortでソートする形です。
+今回は降順なので、$aと$bを比べた結果（$cmp）を逆転させています。
+たぶんもっとすっきりした記述があると思います…
+
+<h3>HTMLに記述</h3>
+データは出来上がったので、後はHTMLに記述していくだけです。
+ここは簡単。
+
+<blockquote class="tr_bq">
+<p>for ( $i = 0; $i &lt;= 4; $i++ ) {</p>
+<p style="padding-left: 1em;">echo '&lt;dt&gt;' . date('Y年n月j日',strtotime($data[$i]['date'])) . "&lt;/dt&gt;\n" . <br>
+	'&lt;dd&gt;&lt;a href="' . $data[$i]['link'] . '" target="_blank"&gt;' . <br>
+	$data[$i]['title'] . "&lt;/a&gt;&lt;/dd&gt;\n";</p>
+<p>}</p>
+</blockquote>
+5つしかないのでforで回しました。
+
+ソートの為にYmdHi（201407291750）の形で整形してましたが、
+表示は日付だけなのでここで再整形。
+
+表示結果はこんな感じになります。
+<blockquote class="tr_bq">
+<p>&lt;dt&gt;2014年7月29日&lt;/dt&gt;<br>
+&lt;dd&gt;&lt;a href="http://www.facebook.com/****/posts/***************" target="_blank"&gt;facebook更新&nbsp;|&nbsp; こんにちは。～...&lt;/a&gt;&lt;/dd&gt;<br>
+&lt;dt&gt;2014年7月29日&lt;/dt&gt;<br>
+&lt;dd&gt;&lt;a href="http://******.blog.jp/archives/********.html" target="_blank"&gt;ブログ更新&nbsp;|&nbsp;夏の～&lt;/a&gt;&lt;/dd&gt;<br>
+&lt;dt&gt;2014年7月28日&lt;/dt&gt;<br>
+&lt;dd&gt;&lt;a href="http://www.facebook.com/****/posts/***************" target="_blank"&gt;facebook更新&nbsp;|&nbsp; こんばんは、～...&lt;/a&gt;&lt;/dd&gt;<br>
+&lt;dt&gt;2014年7月28日&lt;/dt&gt;<br>
+&lt;dd&gt;&lt;a href="http://******.blog.jp/archives/********.html" target="_blank"&gt;ブログ更新&nbsp;|&nbsp;本日～&lt;/a&gt;&lt;/dd&gt;<br>
+&lt;dt&gt;2014年7月27日&lt;/dt&gt;<br>
+&lt;dd&gt;&lt;a href="http://******.blog.jp/archives/********.html" target="_blank"&gt;ブログ更新&nbsp;|&nbsp;冷たい～&lt;/a&gt;&lt;/dd&gt;</p>
+</blockquote>
+
+というわけで今回は、
+LivedoorブログとFacebookの更新情報をサイトに表示する
+を実装しました。
+
+===========================
+環境
+Windows7
+レンタルサーバ
+php5
+HTML5&amp;CSS3
+===========================
+その他参考-------------
+<a href="http://www.ignis.co.jp/memo/simplexml_load_file.html" target="_blank">simplexml_load_file()でRSS1.0(dc:dateなど)を扱う</a>
+<a href="http://ameblo.jp/fwnv2744/entry-11098308870.html" target="_blank">Facebook 投稿ごと単独のURL</a>

@@ -1,0 +1,1371 @@
+<TABLE border=0 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR vAlign=top>
+<TD width="20%">
+<TABLE border=1 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=titlebar1 noWrap>■受付検索</TD></TR>
+<TR>
+<TD class=window3>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2 width="100%">
+<FORM method=post name=f1 action=inqhistory.asp?mode=>
+<TBODY>
+<TR>
+<TD class=nomal noWrap><INPUT CHECKED type=checkbox name=fKEY_WORD_FL> キーワード：</TD>
+<TD class=nomal noWrap align=right><INPUT value=AND CHECKED type=radio name=fAND_OR>and&nbsp; <INPUT value=OR type=radio name=fAND_OR>or</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT onblur="return LengthCheck(this, 100);" style="IME-MODE: active" class=form_input onfocus=GetFocus(this); maxLength=100 size=25 name=fKEY_WORD> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fRECP_NO_FL> 受付番号：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT onblur=LostFocus(this); style="IME-MODE: disabled" class=form_input onfocus=GetFocus(this); maxLength=14 size=14 name=fRECP_NO> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT type=checkbox name=fRECP_OP_FL> 担当者ＩＤ：（<IMG alt=未割り当て src="images/miwari.gif" width=16 height?15?>含む<INPUT CHECKED type=checkbox name=fMIWARI_FL> ）</TD></TR>
+<TR>
+<TD colSpan=2 noWrap><SPAN class=nomal><INPUT onblur=LostFocus(this); style="IME-MODE: disabled" class=form_input onfocus=GetFocus(this); value=2783 maxLength=20 size=13 name=fRECP_OP> </SPAN><INPUT onclick="JavaScript:FindOPOpen('');" value=担当検索 type=button> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fCUST_ID_FL> 顧客番号：</TD></TR>
+<TR>
+<TD colSpan=2><SPAN class=nomal><INPUT onblur=LostFocus(this); style="IME-MODE: disabled" class=form_input onfocus=GetFocus(this); maxLength=13 size=13 name=fCUST_ID> </SPAN><INPUT onclick=JavaScript:FindCustOpen(); value=顧客検索 type=button> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fKSHIMEI_FL> 顧客名（カナ）：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT onblur="return LengthCheck(this, 80);" style="IME-MODE: active" class=form_input onfocus=GetFocus(this); maxLength=80 name=fKSHIMEI> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fCORP_CD_FL> 会社コード：</TD></TR>
+<TR>
+<TD colSpan=2><SPAN class=nomal><INPUT onblur=LostFocus(this); style="IME-MODE: disabled" class=form_input onfocus=GetFocus(this); maxLength=10 size=10 name=fCORP_CD> </SPAN><INPUT onclick=JavaScript:FindCorpOpen2(); value=会社検索 type=button> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fCORP_KNAME_FL> 会社名（カナ）：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT onblur="return LengthCheck(this, 80);" style="IME-MODE: active" class=form_input onfocus=GetFocus(this); maxLength=80 name=fCORP_KNAME> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fMERCHAN_CD_FL> 商品コード：</TD></TR>
+<TR>
+<TD colSpan=2><SPAN class=nomal><INPUT onblur=LostFocus(this); style="IME-MODE: disabled" class=form_input onfocus=GetFocus(this); maxLength=30 size=13 name=fMERCHAN_CD> </SPAN><INPUT onclick=JavaScript:FindMerchanOpen(); value=商品検索 type=button> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fMERCHAN_NAME_FL> 商品名：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT onblur="return LengthCheck(this, 100);" style="IME-MODE: active" class=form_input onfocus=GetFocus(this); maxLength=100 name=fMERCHAN_NAME> </TD></TR>
+<TR>
+<TD colSpan=2 align=right><INPUT value=" 検索 " type=submit> <INPUT type=hidden name=fPAGE> </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR>
+<TABLE border=1 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=titlebar1 noWrap>■詳細条件</TD></TR>
+<TR>
+<TD class=window3>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fSUPPORT_FL> サポート業務分類：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><SELECT onblur=LostFocus(this); class=form_input onfocus=GetFocus(this); name=fSUPPORT> <OPTION selected value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</OPTION> <OPTION value=01>アメナビ</OPTION> <OPTION value=02>ＩＣＳ</OPTION> <OPTION value=04>ＭＰラーニング</OPTION> <OPTION value=05>ＴＤＩシステムサービ</OPTION> <OPTION value=06>ＰＴ</OPTION> <OPTION value=07>電工役員向けiPad -</OPTION> <OPTION value=08>マクニカ - パナソニ</OPTION> <OPTION value=09>郵便局・ASTERIA - パ</OPTION> <OPTION value=10>その他</OPTION> <OPTION value=11>ＢＩＺＦＩＴ - パナ</OPTION> <OPTION value=12>東京スカイツリー -</OPTION> <OPTION value=13>京都水族館 - チケッ</OPTION> <OPTION value=14>すみだ水族館 - チケ</OPTION></SELECT> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fCOPE_STAT_FL_FL> 対応状況：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><SELECT onblur=LostFocus(this); class=form_input onfocus=GetFocus(this); name=fCOPE_STAT_FL> <OPTION value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</OPTION> <OPTION value=02>対応済</OPTION> <OPTION selected value=ZZZ>※未対応全て</OPTION></SELECT> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fRECP_DATE_FL> 受付日：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2 noWrap><INPUT onblur=LostFocus(this); style="IME-MODE: disabled" class=form_input onfocus=GetFocus(this); maxLength=10 size=10 name=fRECP_DATE1> ～ <INPUT onblur=LostFocus(this); style="IME-MODE: disabled" class=form_input onfocus=GetFocus(this); maxLength=10 size=10 name=fRECP_DATE2> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fCOMPL_DATE_FL> 完了日：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT onblur=LostFocus(this); style="IME-MODE: disabled" class=form_input onfocus=GetFocus(this); maxLength=10 size=10 name=fCOMPL_DATE1> ～ <INPUT onblur=LostFocus(this); style="IME-MODE: disabled" class=form_input onfocus=GetFocus(this); maxLength=10 size=10 name=fCOMPL_DATE2> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fCLASS_FL> 問合せ分類：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><SELECT onblur=LostFocus(this); class=form_input onfocus=GetFocus(this); name=fCLASS> <OPTION selected value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</OPTION></SELECT> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fICLASS_FL> 情報分類：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><SELECT onblur=LostFocus(this); class=form_input onfocus=GetFocus(this); name=fICLASS> <OPTION selected value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</OPTION></SELECT> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fCLASS1_FL> 分類１：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><SELECT onblur=LostFocus(this); class=form_input onfocus=GetFocus(this); name=fCLASS1> <OPTION selected value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</OPTION></SELECT> </TD></TR>
+<TR>
+<TD class=nomal colSpan=2><INPUT CHECKED type=checkbox name=fCLASS2_FL> 分類２：</TD></TR>
+<TR>
+<TD class=nomal colSpan=2><SELECT onblur=LostFocus(this); class=form_input onfocus=GetFocus(this); name=fCLASS2> <OPTION selected value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</OPTION></SELECT> </TD></TR>
+<TR>
+<TD colSpan=2 align=right><INPUT value=" 検索 " type=submit></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM></TD><!-- 高速全文検索用フォーム -->
+<FORM method=get name=namazu action=""><INPUT type=hidden name=query> <INPUT value=20 type=hidden name=max> <INPUT value=normal type=hidden name=result> <INPUT value=score type=hidden name=sort> <INPUT value=inq type=hidden name=idxname> </FORM>
+<TD width="80%"><A name=pagetop></A>
+<TABLE border=1 cellSpacing=0 cellPadding=3 width="100%">
+<FORM name=f>
+<TBODY>
+<TR>
+<TD class=titlebar1 noWrap>■受付検索結果</TD></TR>
+<TR>
+<TD class=window1>
+<TABLE border=1 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=titlebar2 noWrap align=middle>全部で&nbsp;8&nbsp;件のデータが見つかりました。 現在&nbsp;1&nbsp;件目から&nbsp; 8&nbsp;件目を表示してます。 </TD></TR>
+<TR>
+<TD class=window2>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=3>
+<TBODY>
+<TR>
+<TD align=right>
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right>１.</TD></TR></TBODY></TABLE></TD>
+<TD class=nomal noWrap><A href="#ID20131111-00002">20131111-00002</A></TD>
+<TD></TD>
+<TD><SPAN class=nomal_red>Ｂ　インターネットへ接続出来ない(既接) </SPAN><SPAN class=small80>大島　幸一</SPAN> </TD></TR>
+<TR>
+<TD align=right>
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right>２.</TD></TR></TBODY></TABLE></TD>
+<TD class=nomal noWrap><A href="#ID20131110-00007">20131110-00007</A></TD>
+<TD></TD>
+<TD><SPAN class=nomal_red>Ｂ　【手続きCB】メールアカウントの申請(PW) </SPAN><SPAN class=small80>菅沼田　聖司</SPAN> </TD></TR>
+<TR>
+<TD align=right>
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right>３.</TD></TR></TBODY></TABLE></TD>
+<TD class=nomal noWrap><A href="#ID20131109-00001">20131109-00001</A></TD>
+<TD></TD>
+<TD><SPAN class=nomal_red>TTS　【20131109-00001】紙幣自動釣銭機カセットエラー頻発 </SPAN><SPAN class=small80>武田　圭介</SPAN> </TD></TR>
+<TR>
+<TD align=right>
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right>４.</TD></TR></TBODY></TABLE></TD>
+<TD class=nomal noWrap><A href="#ID20131107-00001">20131107-00001</A></TD>
+<TD></TD>
+<TD><SPAN class=nomal_red>Ｂ　【停電作業】デ・リード大津におの浜レイクサイド　11月20日--【周知】 </SPAN><SPAN class=small80>管理人</SPAN> </TD></TR>
+<TR>
+<TD align=right>
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right>５.</TD></TR></TBODY></TABLE></TD>
+<TD class=nomal noWrap><A href="#ID20131106-00005">20131106-00005</A></TD>
+<TD></TD>
+<TD><SPAN class=nomal_red>IS　チケッティングシステム　簡易管理システムについて </SPAN><SPAN class=small80>テライ</SPAN> </TD></TR>
+<TR>
+<TD align=right>
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right>６.</TD></TR></TBODY></TABLE></TD>
+<TD class=nomal noWrap><A href="#ID20131105-00008">20131105-00008</A></TD>
+<TD></TD>
+<TD><SPAN class=nomal_red>Ｂ　PPPoE設定について　--11/12まで </SPAN><SPAN class=small80>井筒　康晴</SPAN> </TD></TR>
+<TR>
+<TD align=right>
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right>７.</TD></TR></TBODY></TABLE></TD>
+<TD class=nomal noWrap><A href="#ID20131104-00004">20131104-00004</A></TD>
+<TD></TD>
+<TD><SPAN class=nomal_red>TTS　【20131104-00004】【TSP-98】東京スカイツリー様　APサーバのログにてerror検知のご質問 </SPAN><SPAN class=small80>武田　圭介</SPAN> </TD></TR>
+<TR>
+<TD align=right>
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right>８.</TD></TR></TBODY></TABLE></TD>
+<TD class=nomal noWrap><A href="#ID20130913-00002">20130913-00002</A></TD>
+<TD></TD>
+<TD><SPAN class=nomal_red>Ｂ　12月末まで【対応依頼】ICS小谷様より（パレロワイヤル　タデラ） </SPAN><SPAN class=small80>小谷（営業担当）</SPAN> </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE width="100%">
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right><SPAN style="COLOR: #666666">&lt;&lt;</SPAN>&nbsp; <SPAN class=nomal_red>1</SPAN>&nbsp; <SPAN style="COLOR: #666666">2</SPAN>&nbsp; <SPAN style="COLOR: #666666">3</SPAN>&nbsp; <SPAN style="COLOR: #666666">4</SPAN>&nbsp; <SPAN style="COLOR: #666666">5</SPAN>&nbsp; <SPAN style="COLOR: #666666">6</SPAN>&nbsp; <SPAN style="COLOR: #666666">7</SPAN>&nbsp; <SPAN style="COLOR: #666666">8</SPAN>&nbsp; <SPAN style="COLOR: #666666">9</SPAN>&nbsp; <SPAN style="COLOR: #666666">10</SPAN>&nbsp; <SPAN style="COLOR: #666666">&gt;&gt;</SPAN> </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- ボタン表示 --->
+<TABLE border=0 cellSpacing=0 cellPadding=5 width="100%">
+<TBODY>
+<TR>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1>
+<TBODY>
+<TR>
+<TD><IMG alt=Clip src="images/clip.gif" width=12 height=15></TD>
+<TD class=small80>…添付File有&nbsp;&nbsp;</TD>
+<TD><IMG alt=Open src="images/open.gif" width=14 height=15></TD>
+<TD class=small80>…FAQ有&nbsp;&nbsp;</TD>
+<TD><IMG alt=緊急 src="images/kinkyu.gif" width=16 height=15></TD>
+<TD class=small80>…緊急&nbsp;&nbsp;</TD>
+<TD><IMG alt=未割り当て src="images/miwari.gif" width=16 height=15></TD>
+<TD class=small80>…未割り当て&nbsp;&nbsp;</TD>
+<TD><IMG alt=E-Mail src="images/mail.gif" width=15 height=15></TD>
+<TD class=small80>…E-Mail&nbsp;&nbsp;</TD>
+<TD><IMG alt=Fax src="images/fax.gif" width=15 height=15></TD>
+<TD class=small80>…Fax</TD></TR></TBODY></TABLE></TD>
+<TD class=nomal noWrap align=right><INPUT class=btn onclick=JavaScript:document.f1.fPAGE.value=1;document.f1.submit(); value=" 再読込 " type=button> <INPUT class=btn onclick=JavaScript:location.href=parent.fr_top.window.url; value="  戻る  " type=button> </TD></TR></TBODY></TABLE>
+<HR SIZE=1>
+
+<TABLE border=1 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=window1 align=middle><A name=ID20131111-00002></A>
+<TABLE border=1 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR class=titlebar2>
+<TD align=left>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2>
+<TBODY>
+<TR vAlign=center>
+<TD class=nomal noWrap>１.</TD>
+<TD class=nomal noWrap><A href="JavaScript:parent.fr_top.window.InqEditOpen('20131111-00002');" target=_self>受付番号20131111-00002</A></TD>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1>
+<TBODY>
+<TR>
+<TD class=nomal_red>Ｂ　インターネットへ接続出来ない(既接) </TD></TR></TBODY></TABLE></TD>
+<TD align=right><INPUT onclick="JavaScript:location.href='#pagetop';" value=" 戻る " type=button> <INPUT onclick="JavaScript:OpChangeOpen('20131111-00002');" value=担当者変更 type=button> </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window1 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD width=20></TD>
+<TD class=small80 width="100%">顧客名：[大島　幸一]&nbsp;&nbsp; 担当者：[谷]&nbsp;&nbsp; 受付日：[2013/11/11]&nbsp;&nbsp; 完了日：[] </TD></TR>
+<TR>
+<TD></TD>
+<TD class=small80 width="100%">問合せ分類：[無線ルーター／アクセスポイント]&nbsp;&nbsp; 情報分類：[電話] </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window2 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ｑ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>無線ルータを購入したので、設定方法を教えて欲しい。</TD></TR>
+<TR>
+<TD class=small80>以前からルータを使っていて、接続はしていたが、現在クローゼット内のルータを外し</TD></TR>
+<TR>
+<TD class=small80>新しいものを接続した。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>その状態で設定画面を開いているが、どうすればいいか。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>無線ルータはバッファロー製。</TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ａ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>PPPoE接続のIDとパスワードが必要になることをお伝えしましたが、設定の用紙は</TD></TR>
+<TR>
+<TD class=small80>お持ちで無いようでした。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>IDとパスワードがわからない場合、再発行が必要なことをお伝えし、手続きをさせて頂くことを案内しました。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><A name=ID20131110-00007></A>
+<TABLE border=1 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR class=titlebar2>
+<TD align=left>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2>
+<TBODY>
+<TR vAlign=center>
+<TD class=nomal noWrap>２.</TD>
+<TD class=nomal noWrap><A href="JavaScript:parent.fr_top.window.InqEditOpen('20131110-00007');" target=_self>受付番号20131110-00007</A></TD>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1>
+<TBODY>
+<TR>
+<TD class=nomal_red>Ｂ　【手続きCB】メールアカウントの申請(PW) </TD></TR></TBODY></TABLE></TD>
+<TD align=right><INPUT onclick="JavaScript:location.href='#pagetop';" value=" 戻る " type=button> <INPUT onclick="JavaScript:OpChangeOpen('20131110-00007');" value=担当者変更 type=button> </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window1 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD width=20></TD>
+<TD class=small80 width="100%">顧客名：[菅沼田　聖司]&nbsp;&nbsp; 担当者：[池辺]&nbsp;&nbsp; 受付日：[2013/11/10]&nbsp;&nbsp; 完了日：[] </TD></TR>
+<TR>
+<TD></TD>
+<TD class=small80 width="100%">問合せ分類：[Eメール申請]&nbsp;&nbsp; 情報分類：[電話] </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window2 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ｑ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>eメールの設定をしようとしているが、アカウントの通知書をなくしてしまったので、パスワードが分からない。</TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ａ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>申請書を記載頂き、輸送もしくはFAXで申請頂く形になる事をお伝え。申請書はHPからダウンロードできる事をお伝えし、お手元にプリンタが有るか確認。</TD></TR>
+<TR>
+<TD class=small80>無いので、輸送してほしいとのこと。</TD></TR>
+<TR>
+<TD class=small80>アドレスも知りたいが可能か？</TD></TR>
+<TR>
+<TD class=small80>→申請書の余白にその旨を記載頂ければ可能である事をお伝え。</TD></TR>
+<TR>
+<TD class=small80>念のため、住所、連絡先を確認。</TD></TR>
+<TR>
+<TD class=small80>住所：大阪市鶴見区放出東3丁目35-1012号室</TD></TR>
+<TR>
+<TD class=small80>連絡先：06-4977-1170</TD></TR>
+<TR>
+<TD class=small80>宛：菅沼田　聖司（スガヌマタ&nbsp;セイジ）様</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>16:32　準備完了（池辺）</TD></TR>
+<TR>
+<TD class=small80>**:**　確認完了（**）</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>ヤマト番号：7081-9678-3921</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【引継ぎ】11/10　20:35（大森）</TD></TR>
+<TR>
+<TD class=small80>Eメールアドレスとパスワードが分からなくなっているとのことですので、アカウント申請書の輸送をお願いします。</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><A name=ID20131109-00001></A>
+<TABLE border=1 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR class=titlebar2>
+<TD align=left>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2>
+<TBODY>
+<TR vAlign=center>
+<TD class=nomal noWrap>３.</TD>
+<TD class=nomal noWrap><A href="JavaScript:parent.fr_top.window.InqEditOpen('20131109-00001');" target=_self>受付番号20131109-00001</A></TD>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1>
+<TBODY>
+<TR>
+<TD class=nomal_red>TTS　【20131109-00001】紙幣自動釣銭機カセットエラー頻発 </TD></TR></TBODY></TABLE></TD>
+<TD align=right><INPUT onclick="JavaScript:location.href='#pagetop';" value=" 戻る " type=button> <INPUT onclick="JavaScript:OpChangeOpen('20131109-00001');" value=担当者変更 type=button> </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window1 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD width=20></TD>
+<TD class=small80 width="100%">顧客名：[武田　圭介]&nbsp;&nbsp; 担当者：[谷]&nbsp;&nbsp; 受付日：[2013/11/09]&nbsp;&nbsp; 完了日：[] </TD></TR>
+<TR>
+<TD></TD>
+<TD class=small80 width="100%">問合せ分類：[チケッティングシステム]&nbsp;&nbsp; 情報分類：[4F　チケット販売窓口] </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window2 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ｑ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>09:57</TD></TR>
+<TR>
+<TD class=small80>【発生日時】</TD></TR>
+<TR>
+<TD class=small80>2013/11/8　22:00頃発生</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【発生場所】</TD></TR>
+<TR>
+<TD class=small80>4F&nbsp;チケットカウンター</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【発生機器】</TD></TR>
+<TR>
+<TD class=small80>1号機　紙幣自動釣銭機</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【事　　象】</TD></TR>
+<TR>
+<TD class=small80>回収後</TD></TR>
+<TR>
+<TD class=small80>「カセットを奥までセットしてください」という旨のエラーメッセージ</TD></TR>
+<TR>
+<TD class=small80>カセットを再セットすると</TD></TR>
+<TR>
+<TD class=small80>「カセット残留物あり」のエラーメッセージ</TD></TR>
+<TR>
+<TD class=small80>カセットの内部を確認（残留物なし）し、再セットするも同エラーメッセージ</TD></TR>
+<TR>
+<TD class=small80>何度やっても同じエラーが出るので、</TD></TR>
+<TR>
+<TD class=small80>一度時間を置き、再度カセットの再セットをするとエラーが消えた。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>また、同現象は10/14　朝7：00ごろにも発生しています。</TD></TR>
+<TR>
+<TD class=small80>原因等の調査をお願い致します。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【業務影響度】</TD></TR>
+<TR>
+<TD class=small80>現状は通常通り使用可能です。</TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ａ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>9:50　武田様より入電</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>9:55　[電話]サポート→GF社様（池辺）</TD></TR>
+<TR>
+<TD class=small80>念のためソフトウェア関連の可能性が低い事を確認。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>10:00　[電話]サポート→東芝テック社様（池辺）</TD></TR>
+<TR>
+<TD class=small80>保守対応を依頼しました。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>10:50　[メール]サポート→GF社様（池辺）</TD></TR>
+<TR>
+<TD class=small80>メールにて、対応を報告しました。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【引継ぎ】11/9　11：20　いけべ</TD></TR>
+<TR>
+<TD class=small80>上記東芝テック様より対応報告ございましたら、</TD></TR>
+<TR>
+<TD class=small80>記載お願い致します。</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><A name=ID20131107-00001></A>
+<TABLE border=1 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR class=titlebar2>
+<TD align=left>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2>
+<TBODY>
+<TR vAlign=center>
+<TD class=nomal noWrap>４.</TD>
+<TD class=nomal noWrap><A href="JavaScript:parent.fr_top.window.InqEditOpen('20131107-00001');" target=_self>受付番号20131107-00001</A></TD>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1>
+<TBODY>
+<TR>
+<TD class=nomal_red>Ｂ　【停電作業】デ・リード大津におの浜レイクサイド　11月20日--【周知】 </TD></TR></TBODY></TABLE></TD>
+<TD align=right><INPUT onclick="JavaScript:location.href='#pagetop';" value=" 戻る " type=button> <INPUT onclick="JavaScript:OpChangeOpen('20131107-00001');" value=担当者変更 type=button> </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window1 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD width=20></TD>
+<TD class=small80 width="100%">顧客名：[管理人]&nbsp;&nbsp; 担当者：[谷]&nbsp;&nbsp; 受付日：[2013/11/07]&nbsp;&nbsp; 完了日：[] </TD></TR>
+<TR>
+<TD></TD>
+<TD class=small80 width="100%">問合せ分類：[基幹側回線]&nbsp;&nbsp; 情報分類：[電話] </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window2 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ｑ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>オガワ様より入電</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>11/20（水）14:00～15:00の間</TD></TR>
+<TR>
+<TD class=small80>関西電気保安協会により検査停電があります。</TD></TR>
+<TR>
+<TD class=small80>住民の方へは既に周知済みです。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>住民の方からの問合せ対応などお願いします。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>また、通常サーバーが停電した場合は異常シャットダウンという形になると思うが、通電した時点で自然復旧するのか。</TD></TR>
+<TR>
+<TD class=small80>もしくはなにか作業が必要なのか（必要な場合はICSで対応して欲しい）。</TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ａ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>問合せ対応させていただきます。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>通電後に関しては、確認させて頂き折り返しご連絡させていただきます。</TD></TR>
+<TR>
+<TD class=small80>折り返し先：電話番号1orFAX</TD></TR>
+<TR>
+<TD class=small80>本日11:00以降不在になるためFAXもしくは明日でも結構ですとのことです。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>9:25　[電話]サポート→管理人様（池辺）</TD></TR>
+<TR>
+<TD class=small80>NW機器は通常通電すれば機器が再起動されNWは使える状態になります。ですので、特に作業は必要ございません。</TD></TR>
+<TR>
+<TD class=small80>もし機器の中に通常通り起動しないものがあった場合NW障害になってしまう。その際はこちらで検知できるので、</TD></TR>
+<TR>
+<TD class=small80>業者さんがお伺いさせて頂く事がありますので、ご対応お願い致します。</TD></TR>
+<TR>
+<TD class=small80>上記回答しています。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>13:39&nbsp;[メール]サポート→ICS（池辺）</TD></TR>
+<TR>
+<TD class=small80>[support:149847]日時情報をご報告しました。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【引継ぎ】</TD></TR>
+<TR>
+<TD class=small80>周知のため11/20まで未対応とします。</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><A name=ID20131106-00005></A>
+<TABLE border=1 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR class=titlebar2>
+<TD align=left>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2>
+<TBODY>
+<TR vAlign=center>
+<TD class=nomal noWrap>５.</TD>
+<TD class=nomal noWrap><A href="JavaScript:parent.fr_top.window.InqEditOpen('20131106-00005');" target=_self>受付番号20131106-00005</A></TD>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1>
+<TBODY>
+<TR>
+<TD class=nomal_red>IS　チケッティングシステム　簡易管理システムについて </TD></TR></TBODY></TABLE></TD>
+<TD align=right><INPUT onclick="JavaScript:location.href='#pagetop';" value=" 戻る " type=button> <INPUT onclick="JavaScript:OpChangeOpen('20131106-00005');" value=担当者変更 type=button> </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window1 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD width=20></TD>
+<TD class=small80 width="100%">顧客名：[テライ]&nbsp;&nbsp; 担当者：[池辺]&nbsp;&nbsp; 受付日：[2013/11/06]&nbsp;&nbsp; 完了日：[2013/11/06] </TD></TR>
+<TR>
+<TD></TD>
+<TD class=small80 width="100%">問合せ分類：[その他]&nbsp;&nbsp; 情報分類：[電話] </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window2 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ｑ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>8:48　新江ノ島水族館　寺井様より入電。</TD></TR>
+<TR>
+<TD class=small80>チケッティングシステムの簡易管理システムのサーバーに接続が出来ない。</TD></TR>
+<TR>
+<TD class=small80>9時から開園するがそれまでに何とかしたいので至急連絡を</TD></TR>
+<TR>
+<TD class=small80>お願いしたい。</TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ａ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>開園の9時までに一報を頂きたいとのこと。</TD></TR>
+<TR>
+<TD class=small80>担当者に連絡を行い、折り返し御連絡させて頂きますと回答。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>※コールセンターでは保守依頼を頂いていない案件となります。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>8:50　東日本ビジネスソリューションへ発信</TD></TR>
+<TR>
+<TD class=small80>担当：池田様</TD></TR>
+<TR>
+<TD class=small80>状況をお伝えし、寺井様に9時までに御連絡頂くよう依頼。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>9:05　寺井様より入電。（長栄）</TD></TR>
+<TR>
+<TD class=small80>9時までに連絡して欲しいといっていたのに連絡が一向にない。</TD></TR>
+<TR>
+<TD class=small80>開園してしまった。仕事が出来ないとお怒りの状態で入電。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>応対中に東日本ビジネスソリューションへ発信（菅野）</TD></TR>
+<TR>
+<TD class=small80>お客様から催促の連絡が入っている旨を電話に出られた池田様にお伝えした所、横地様に電話を変わられ状況を報告。</TD></TR>
+<TR>
+<TD class=small80>お客様には取り急ぎ連絡を行いますが、こちらでも保守契約を</TD></TR>
+<TR>
+<TD class=small80>行っているわけでは無い為、連絡先や保守窓口については</TD></TR>
+<TR>
+<TD class=small80>こちらで確認します。</TD></TR>
+<TR>
+<TD class=small80>①新江ノ島水族館様がサポートセンターさんの連絡を何故しっているのか。</TD></TR>
+<TR>
+<TD class=small80>②通常の保守窓口が何処が受けるのか。→通常の連絡ルートが</TD></TR>
+<TR>
+<TD class=small80>不明な為、確認します。</TD></TR>
+<TR>
+<TD class=small80>（保守窓口がGF社さんなのかISなのかそれとも他のベンダー様なのか不明）</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>横地様にて確認が取れ次第、ご連絡をいただけるとのことです。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>13:28　対応時系列を「aquarium@ml.is-c.jp.panasonic.com」宛てに送付。</TD></TR>
+<TR>
+<TD class=small80>13:32　東日本ビジネスソリューショングループへ発信。</TD></TR>
+<TR>
+<TD class=small80>横地様宛てに発信しましたが、外出されており、本日は事務所に戻られないとのこと。</TD></TR>
+<TR>
+<TD class=small80>ご伝言で本日対応を依頼しました時系列をメールにてお送りさせて頂いた旨をお伝えいただくよう依頼。</TD></TR>
+<TR>
+<TD class=small80>=============================================================</TD></TR>
+<TR>
+<TD class=small80>11/7　15:50【メール】袈裟丸氏→サポート（松家）</TD></TR>
+<TR>
+<TD class=small80>件名：【新江ノ島水族館】11月6日&nbsp;PointClub接続不可の件について</TD></TR>
+<TR>
+<TD class=small80>表題の件について、現時点で</TD></TR>
+<TR>
+<TD class=small80>GFより回答いただいてる内容を連携させていただきます。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>~~中略~~</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>以上ご報告です。</TD></TR>
+<TR>
+<TD class=small80>原因など連絡がありましたら、また連携させていただきます。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>本件の内容とは少し話が変わりますが、</TD></TR>
+<TR>
+<TD class=small80>今回、新江ノ島水族館様より直接、PISヘルプデスクに</TD></TR>
+<TR>
+<TD class=small80>連絡がありました。</TD></TR>
+<TR>
+<TD class=small80>また、GF殿にて本件対応中に、江ノ島&nbsp;寺井様よりGF殿へ</TD></TR>
+<TR>
+<TD class=small80>　「緊急時はGFへ直接、連絡取りたい。」</TD></TR>
+<TR>
+<TD class=small80>と言われたようです。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>問合せルートは</TD></TR>
+<TR>
+<TD class=small80>　新江ノ島→大成建設→PIS→GF</TD></TR>
+<TR>
+<TD class=small80>となっておりますので、江ノ島様へ</TD></TR>
+<TR>
+<TD class=small80>その旨、ご連絡お願いできないでしょうか。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>以上、よろしくお願い致します。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>16:10【電話】サポート→袈裟丸氏（松家）</TD></TR>
+<TR>
+<TD class=small80>メールの件について確認。</TD></TR>
+<TR>
+<TD class=small80>今後、新江ノ島水族館様より入電があった際は、大成建設さんが直接のコール先であることを伝えていいとの事。</TD></TR>
+<TR>
+<TD class=small80>その為、そちらにお電話頂く様案内していいとの事でした。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【補足】（松家）</TD></TR>
+<TR>
+<TD class=small80>・新江ノ島水族館様は大成建設様の連絡先はご存知のはずであるとの事。</TD></TR>
+<TR>
+<TD class=small80>・今件、何故サポートに連絡があったのかは不明との事。</TD></TR>
+<TR>
+<TD class=small80>というのも、オリックスグループではあるが、厳密には新江ノ島様は京都、すみだとは違うグループであるとの事。</TD></TR>
+<TR>
+<TD class=small80>以上、袈裟丸氏よりご通達頂きました。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>--以降Long値のため必要と思われる内容のみ記載--</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>22:56　[メール]大成建設栗山様→PIS袈裟丸様（池辺）</TD></TR>
+<TR>
+<TD class=small80>~~中略~~</TD></TR>
+<TR>
+<TD class=small80>【お客様からの連絡経路】</TD></TR>
+<TR>
+<TD class=small80>・私も「直接GF殿」はNGという認識ですので、お客様に再認識して頂きます。</TD></TR>
+<TR>
+<TD class=small80>・PIS殿への連絡については、私がすぐに捕まらない場合の緊急連絡先という位置づけにさせて頂いていますので（サービス契約書参照）、この点はご理解頂きたいと思います。</TD></TR>
+<TR>
+<TD class=small80>・今回もお客様は即時に私に連絡を入れましたが、私が飛行機に乗っていたため対応できませんでした。ご容赦ください。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>========================</TD></TR>
+<TR>
+<TD class=small80>11/11　11:00　[電話]サポート→横地様（菅野）</TD></TR>
+<TR>
+<TD class=small80>連絡経路について、再度確認</TD></TR>
+<TR>
+<TD class=small80>横地さん、大成建設さん、お客様で</TD></TR>
+<TR>
+<TD class=small80>場を設けて連絡経路について認識のすりあわせを行っていただく予定になっています。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>それまでの暫定としては、</TD></TR>
+<TR>
+<TD class=small80>もし入電があった場合、</TD></TR>
+<TR>
+<TD class=small80>●大成建設さんに連絡されているかを確認</TD></TR>
+<TR>
+<TD class=small80>　①していない場合は、</TD></TR>
+<TR>
+<TD class=small80>　　→大成建設さんを案内</TD></TR>
+<TR>
+<TD class=small80>　②既にしているor大成建設に連絡がつかない場合は、</TD></TR>
+<TR>
+<TD class=small80>　　→サポートで内容を聞いてBSGにエスカレーション</TD></TR>
+<TR>
+<TD class=small80>という対応でお願いします。</TD></TR>
+<TR>
+<TD class=small80>（池辺代筆）</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【引継ぎ】11/11　13:00　池辺</TD></TR>
+<TR>
+<TD class=small80>しばらく周知として未対応とさせていただきます。</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><A name=ID20131105-00008></A>
+<TABLE border=1 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR class=titlebar2>
+<TD align=left>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2>
+<TBODY>
+<TR vAlign=center>
+<TD class=nomal noWrap>６.</TD>
+<TD class=nomal noWrap><A href="JavaScript:parent.fr_top.window.InqEditOpen('20131105-00008');" target=_self>受付番号20131105-00008</A></TD>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1>
+<TBODY>
+<TR>
+<TD class=nomal_red>Ｂ　PPPoE設定について　--11/12まで </TD></TR></TBODY></TABLE></TD>
+<TD align=right><INPUT onclick="JavaScript:location.href='#pagetop';" value=" 戻る " type=button> <INPUT onclick="JavaScript:OpChangeOpen('20131105-00008');" value=担当者変更 type=button> </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window1 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD width=20></TD>
+<TD class=small80 width="100%">顧客名：[井筒　康晴]&nbsp;&nbsp; 担当者：[池辺]&nbsp;&nbsp; 受付日：[2013/11/05]&nbsp;&nbsp; 完了日：[2013/11/05] </TD></TR>
+<TR>
+<TD></TD>
+<TD class=small80 width="100%">問合せ分類：[ＰＣ本体]&nbsp;&nbsp; 情報分類：[電話] </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window2 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ｑ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>無線ルーターを購入して、接続設定を行っていたら、パスワード、ユーザー名を聞かれた。</TD></TR>
+<TR>
+<TD class=small80>手元に専用の用紙が無いので、どうすればいいですか。</TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ａ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>PPPoE設定の用紙がないとの事でした。</TD></TR>
+<TR>
+<TD class=small80>弊社担当より、郵送にて送付させて頂きますが、本日、担当窓口は閉めさせて頂いておりますので、</TD></TR>
+<TR>
+<TD class=small80>明日以降、PPPoEの専用の用紙を送付させて頂く旨を案内。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>21:50【メール】サポート→ICS（松家）</TD></TR>
+<TR>
+<TD class=small80>[support:149761]&nbsp;</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>---------------------------------------------</TD></TR>
+<TR>
+<TD class=small80>※メールタイトルがルールと逸脱したタイトルで送付されています。【マンション名+認証ID通知書】になっています。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【マンション名+お部屋番号+お客様名】でお送りすることを</TD></TR>
+<TR>
+<TD class=small80>忘れずにしてください。（菅野）</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>===========================================================</TD></TR>
+<TR>
+<TD class=small80>11/6　13:42【メール】ICS→サポート（松家）</TD></TR>
+<TR>
+<TD class=small80>[support:149801]</TD></TR>
+<TR>
+<TD class=small80>サポートデスク御中</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>お世話になっております。</TD></TR>
+<TR>
+<TD class=small80>本日、郵送手配しました。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>========================</TD></TR>
+<TR>
+<TD class=small80>11/8　08:50　[電話]井筒様→サポート（池辺）</TD></TR>
+<TR>
+<TD class=small80>今件用紙がまだ届かないと入電がありました。</TD></TR>
+<TR>
+<TD class=small80>11/6に郵送で発送している旨と</TD></TR>
+<TR>
+<TD class=small80>通常郵送ですので11/8中には届くかと思いますと返答しています。</TD></TR>
+<TR>
+<TD class=small80>もし11/11（月）になっても届かない場合は、</TD></TR>
+<TR>
+<TD class=small80>お手数ですが再度ご連絡いただくようお願いしました。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【引継ぎ】11/8　8:56　池辺</TD></TR>
+<TR>
+<TD class=small80>今件一度クローズしましたが、</TD></TR>
+<TR>
+<TD class=small80>郵送が届かないとのご連絡があったため、再度未対応とします。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>11/11までに届かなければ再度ご連絡あると思います。</TD></TR>
+<TR>
+<TD class=small80>あった場合はICSに確認してください。</TD></TR>
+<TR>
+<TD class=small80>11/12まで連絡なければクローズしてください。</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><A name=ID20131104-00004></A>
+<TABLE border=1 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR class=titlebar2>
+<TD align=left>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2>
+<TBODY>
+<TR vAlign=center>
+<TD class=nomal noWrap>７.</TD>
+<TD class=nomal noWrap><A href="JavaScript:parent.fr_top.window.InqEditOpen('20131104-00004');" target=_self>受付番号20131104-00004</A></TD>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1>
+<TBODY>
+<TR>
+<TD class=nomal_red>TTS　【20131104-00004】【TSP-98】東京スカイツリー様　APサーバのログにてerror検知のご質問 </TD></TR></TBODY></TABLE></TD>
+<TD align=right><INPUT onclick="JavaScript:location.href='#pagetop';" value=" 戻る " type=button> <INPUT onclick="JavaScript:OpChangeOpen('20131104-00004');" value=担当者変更 type=button> </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window1 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD width=20></TD>
+<TD class=small80 width="100%">顧客名：[武田　圭介]&nbsp;&nbsp; 担当者：[池辺]&nbsp;&nbsp; 受付日：[2013/11/04]&nbsp;&nbsp; 完了日：[] </TD></TR>
+<TR>
+<TD></TD>
+<TD class=small80 width="100%">問合せ分類：[チケッティングシステム]&nbsp;&nbsp; 情報分類：[その他] </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window2 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ｑ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>17:43　[メール]TWR武田様→サポート</TD></TR>
+<TR>
+<TD class=small80>【問合せ：東武タワースカイツリー】APサーバのログにてerror検知（2013/11/04）【中】</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>チケッティングシステム</TD></TR>
+<TR>
+<TD class=small80>サポートデスク担当者様</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>お世話になっております。TWR武田です。</TD></TR>
+<TR>
+<TD class=small80>問い合わせをメールにてご連絡させて頂きます。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>以下障害状況です。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【発生日時】</TD></TR>
+<TR>
+<TD class=small80>2013/11/04</TD></TR>
+<TR>
+<TD class=small80>13時13分11秒</TD></TR>
+<TR>
+<TD class=small80>複数回</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【発生場所】</TD></TR>
+<TR>
+<TD class=small80>JP1発報</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【発生機器】</TD></TR>
+<TR>
+<TD class=small80>APサーバ</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【事　　象】</TD></TR>
+<TR>
+<TD class=small80>JP1にて以下のアラート</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>・障害発生ノード名:tsap01.twrtsdomain</TD></TR>
+<TR>
+<TD class=small80>　障害メッセージ:2013-11-04&nbsp;13:13:08,720&nbsp;[http-80-1]&nbsp;ERROR&nbsp;org.seasar.flex2.rpc.</TD></TR>
+<TR>
+<TD class=small80>remoting.message.processor.MessageBodyProcessor&nbsp;-&nbsp;[ESSR0072]SQL??</TD></TR>
+<TR>
+<TD class=small80>§??????(SQL=[select&nbsp;G.*,&nbsp;C.name&nbsp;as&nbsp;customerkindname,&nbsp;C.issuedivi&nbsp;as</TD></TR>
+<TR>
+<TD class=small80>customerkindissuedivi,&nbsp;P.name&nbsp;as&nbsp;prefecturename&nbsp;from&nbsp;mst_group&nbsp;G&nbsp;left&nbsp;outer&nbsp;join</TD></TR>
+<TR>
+<TD class=small80>mst_customerkind&nbsp;C&nbsp;on&nbsp;G.customerkindcode&nbsp;=&nbsp;C.code&nbsp;and&nbsp;C.status=0&nbsp;left&nbsp;outer&nbsp;join</TD></TR>
+<TR>
+<TD class=small80>mst_prefecture&nbsp;P&nbsp;on&nbsp;G.prefecturecode&nbsp;=&nbsp;P.code&nbsp;and&nbsp;C.status=0&nbsp;&nbsp;where&nbsp;(G.halfname</TD></TR>
+<TR>
+<TD class=small80>like&nbsp;'%?????????????????????</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>・障害発生ノード名:tsap01.twrtsdomain</TD></TR>
+<TR>
+<TD class=small80>　障害メッセージ:Caused&nbsp;by:&nbsp;org.postgresql.util.PSQLException:&nbsp;ERROR:&nbsp;invalid</TD></TR>
+<TR>
+<TD class=small80>byte&nbsp;sequence&nbsp;for&nbsp;encoding&nbsp;UTF8:&nbsp;0x9c</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【問い合わせ】</TD></TR>
+<TR>
+<TD class=small80>１．初見の&nbsp;ERRORですので確認お願いします。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>２．該当の予約データが正しく登録されているか確認願います。</TD></TR>
+<TR>
+<TD class=small80>　　※予約センターに確認したところ、</TD></TR>
+<TR>
+<TD class=small80>　　　ポップアップ等は無かったとのことと、</TD></TR>
+<TR>
+<TD class=small80>　　　予約は全て正しいのではないかとのこと。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【業務影響度】</TD></TR>
+<TR>
+<TD class=small80>クリティカルではなさそうなので、</TD></TR>
+<TR>
+<TD class=small80>週明けでも結構です。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>以上、よろしくお願いいたします。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ａ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>18:23　[電話]サポート（岸本）→GF社</TD></TR>
+<TR>
+<TD class=small80>上記連絡が届いている点を報告。</TD></TR>
+<TR>
+<TD class=small80>詳細な内容については別途お電話させていただく旨を案内。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>18:59　[メール]サポート（岸本）→GF社</TD></TR>
+<TR>
+<TD class=small80>【20131104-00004】東京スカイツリー様　APサーバのログにてerror検知のご質問</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>問合せメールを送付実施。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>========================</TD></TR>
+<TR>
+<TD class=small80>11/05&nbsp;16:01　[DB進捗]GF_濱野様→TWR武田様（池辺）</TD></TR>
+<TR>
+<TD class=small80>本件について、確認したところ、予約登録画面の団体名に「￥」を含む文字列を</TD></TR>
+<TR>
+<TD class=small80>入力した場合に発生していました。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>団体名に「￥」を含む文字列を入力すると、入力された団体ｶﾅが自動入力され、</TD></TR>
+<TR>
+<TD class=small80>自動入力された団体ｶﾅで、団体の候補を検索します。</TD></TR>
+<TR>
+<TD class=small80>（予約登録画面で団体名を入力するとドロップダウンリストで候補の団体を表示する機能のことになります）</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>今回、入力された文字は「ﾊﾄﾊﾞｽｼﾞｾﾞﾝﾜｸ\634」になります。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>本エラーが発生すると、団体名入力時に団体候補のドロップダウンリストが表示されなくなります。</TD></TR>
+<TR>
+<TD class=small80>（エラーメッセージは表示されません）</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>本エラーは予約登録時に発生したエラーではなく、予約登録には問題ありません。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>https://tsol.backlog.jp/view/TSP-46</TD></TR>
+<TR>
+<TD class=small80>と類似のエラーになります。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>大変恐れ入りますが、TSP-46（【20130524-00006】）と併せて、２期エンハンスの対応に併せて修正を行わせて頂きたいのですが、</TD></TR>
+<TR>
+<TD class=small80>いかがでしょうか？</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【引継ぎ】11/6　16:02　池辺</TD></TR>
+<TR>
+<TD class=small80>【TSP-98】としてDBには登録されています。</TD></TR>
+<TR>
+<TD class=small80>進捗があれば追記お願いします。</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><A name=ID20130913-00002></A>
+<TABLE border=1 cellSpacing=0 cellPadding=2 width="100%">
+<TBODY>
+<TR class=titlebar2>
+<TD align=left>
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=2>
+<TBODY>
+<TR vAlign=center>
+<TD class=nomal noWrap>８.</TD>
+<TD class=nomal noWrap><A href="JavaScript:parent.fr_top.window.InqEditOpen('20130913-00002');" target=_self>受付番号20130913-00002</A></TD>
+<TD>
+<TABLE border=0 cellSpacing=0 cellPadding=1>
+<TBODY>
+<TR>
+<TD class=nomal_red>Ｂ　12月末まで【対応依頼】ICS小谷様より（パレロワイヤル　タデラ） </TD></TR></TBODY></TABLE></TD>
+<TD align=right><INPUT onclick="JavaScript:location.href='#pagetop';" value=" 戻る " type=button> <INPUT onclick="JavaScript:OpChangeOpen('20130913-00002');" value=担当者変更 type=button> </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window1 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD width=20></TD>
+<TD class=small80 width="100%">顧客名：[小谷（営業担当）]&nbsp;&nbsp; 担当者：[菅野]&nbsp;&nbsp; 受付日：[2013/09/13]&nbsp;&nbsp; 完了日：[] </TD></TR>
+<TR>
+<TD></TD>
+<TD class=small80 width="100%">問合せ分類：[その他]&nbsp;&nbsp; 情報分類：[対応依頼(ICS様)] </TD></TR></TBODY></TABLE></TD></TR>
+<TR class=window2 align=left>
+<TD>
+<TABLE class=small80 border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ｑ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>9：20　ICS大阪支店　営業・小谷様より入電</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>あるマンションでインターフォンの改修工事を行ったのですが</TD></TR>
+<TR>
+<TD class=small80>連絡が取れないお客様がいます。</TD></TR>
+<TR>
+<TD class=small80>お部屋内で機器の交換作業が必要な為ご連絡しているのですが</TD></TR>
+<TR>
+<TD class=small80>管理人様によると平日はご不在の事が多く、土日であれば連絡がつくのでは？とのことでした。</TD></TR>
+<TR>
+<TD class=small80>あいにく土日祝は弊社がお休みの為、お客様からお電話があっても対応できませんので</TD></TR>
+<TR>
+<TD class=small80>土日祝の連絡先として、サポートセンターの番号を文書でご案内しようと思うのですが</TD></TR>
+<TR>
+<TD class=small80>対応をお願いできますか？</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【お客様】</TD></TR>
+<TR>
+<TD class=small80>　マンション名　：　パレロワイヤル　タデラ</TD></TR>
+<TR>
+<TD class=small80>　住所　　　　　：　姫路市</TD></TR>
+<TR>
+<TD class=small80>　お客様名　　　：　ホリイ　様</TD></TR>
+<TR>
+<TD class=small80>　部屋番号　　　：　606号室</TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=top>
+<TD width=20 align=middle>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small90>Ａ</TD></TR></TBODY></TABLE></TD>
+<TD class=small80 width="100%">
+<TABLE border=0 cellSpacing=0 cellPadding=3 width="100%">
+<TBODY>
+<TR>
+<TD class=small80>保守対象外のマンションである為、確認して折り返し。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>菅野氏に確認</TD></TR>
+<TR>
+<TD class=small80>　→ICS大倉様の了承があれば対応</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>9：30　[電話]サポート→ICS小谷様（北野）</TD></TR>
+<TR>
+<TD class=small80>大倉様はこの件をご存知で、サポセンでの対応をご了承頂いているとのこと。</TD></TR>
+<TR>
+<TD class=small80>==========================================</TD></TR>
+<TR>
+<TD class=small80>9/30</TD></TR>
+<TR>
+<TD class=small80>11:30&nbsp;[電話]&nbsp;サポート→ICS小谷様</TD></TR>
+<TR>
+<TD class=small80>9月末時点でお客様、ICS小谷様共に連絡がない為状況を確認。</TD></TR>
+<TR>
+<TD class=small80>ICSにも連絡がない為、10月末まで対応を継続頂きたいとのこと。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【引継ぎ】9/30　11：35（北野）</TD></TR>
+<TR>
+<TD class=small80>上記お客様より入電がありましたら、以下の対応をお願いします。</TD></TR>
+<TR>
+<TD class=small80>-----------------------------------------------------------</TD></TR>
+<TR>
+<TD class=small80>　・お客様に、インターフォン改修工事の件で担当者から折り返しお電話させて頂く旨お伝え下さい</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>　・お客様の「携帯番号」をお伺いしてください</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>　・お客様からサポセンに入電があった事を、ICS小谷様の携帯へ連絡してください。</TD></TR>
+<TR>
+<TD class=small80>　　携帯は電話番号2の番号です。</TD></TR>
+<TR>
+<TD class=small80>　（小谷様から連絡する時間帯について特に指示はありませんでしたが</TD></TR>
+<TR>
+<TD class=small80>　　深夜・早朝の発信は避け、9時～21時頃の連絡が良いと思います）</TD></TR>
+<TR>
+<TD class=small80>-----------------------------------------------------------</TD></TR>
+<TR>
+<TD class=small80>　</TD></TR>
+<TR>
+<TD class=small80>※ICS小谷様より</TD></TR>
+<TR>
+<TD class=small80>　・お客様には文書でも改修工事の件についてご案内します。</TD></TR>
+<TR>
+<TD class=small80>　　そちらに土日祝の連絡先として、サポセンの番号を記載します。</TD></TR>
+<TR>
+<TD class=small80>　　文書は本日9/13（金）発送予定です。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>　・お客様名は「ホリイ様」だったと思うが、間違っているかもしれない。</TD></TR>
+<TR>
+<TD class=small80>　　ただ、マンション名と部屋番号は正しいので</TD></TR>
+<TR>
+<TD class=small80>　　姫路市の「パレロワイヤル　タデラ」から入電があれば</TD></TR>
+<TR>
+<TD class=small80>　　インターフォン改修の件で間違いないので、対応をお願いします。</TD></TR>
+<TR>
+<TD class=small80>　　</TD></TR>
+<TR>
+<TD class=small80>※10月31日までにICSからサポセンでの対応解除の連絡がなければ</TD></TR>
+<TR>
+<TD class=small80>　ICS小谷様に状況を確認してください。</TD></TR>
+<TR>
+<TD class=small80>　</TD></TR>
+<TR>
+<TD class=small80>10/28　ICS様に今件をクローズしてよいか確認のメールを送付。</TD></TR>
+<TR>
+<TD class=small80>11:05　[support:149392]メールを送付（菅野）&nbsp;</TD></TR>
+<TR>
+<TD class=small80>11:14　ICS大倉様よりメールを受信　[support:149393]</TD></TR>
+<TR>
+<TD class=small80>----------------------------------------------------------</TD></TR>
+<TR>
+<TD class=small80>本件、こちらにも連絡がない状態で、</TD></TR>
+<TR>
+<TD class=small80>先日、再度通知書をお客様にお送りしております。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>お手数をおかけしますが、12月末まで対応頂けます様</TD></TR>
+<TR>
+<TD class=small80>お願い致します。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>12月末までに連絡がない場合は、</TD></TR>
+<TR>
+<TD class=small80>対応を終了する予定です。</TD></TR>
+<TR>
+<TD>&nbsp;</TD></TR>
+<TR>
+<TD class=small80>【引継ぎ】2013/10/28　菅野</TD></TR>
+<TR>
+<TD class=small80>上記の件ですが、ICS大倉様より12月末（今年いっぱい）は</TD></TR>
+<TR>
+<TD class=small80>連絡待ちにしてほしいとのことです。</TD></TR>
+<TR>
+<TD class=small80>お客様より連絡があれば、「担当者より折り返し連絡いたします」と返答し、ICS様い対応をエスカレーションしてください。</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE width="100%">
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right><SPAN style="COLOR: #666666">&lt;&lt;</SPAN>&nbsp; <SPAN class=nomal_red>1</SPAN>&nbsp; <SPAN style="COLOR: #666666">2</SPAN>&nbsp; <SPAN style="COLOR: #666666">3</SPAN>&nbsp; <SPAN style="COLOR: #666666">4</SPAN>&nbsp; <SPAN style="COLOR: #666666">5</SPAN>&nbsp; <SPAN style="COLOR: #666666">6</SPAN>&nbsp; <SPAN style="COLOR: #666666">7</SPAN>&nbsp; <SPAN style="COLOR: #666666">8</SPAN>&nbsp; <SPAN style="COLOR: #666666">9</SPAN>&nbsp; <SPAN style="COLOR: #666666">10</SPAN>&nbsp; <SPAN style="COLOR: #666666">&gt;&gt;</SPAN> </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- ボタン表示 --->
+<TABLE border=0 cellSpacing=0 cellPadding=5 width="100%">
+<TBODY>
+<TR>
+<TD class=nomal noWrap align=right><INPUT class=btn onclick=JavaScript:document.f1.fPAGE.value=1;document.f1.submit(); value=" 再読込 " type=button> <INPUT class=btn onclick=JavaScript:location.href=parent.fr_top.window.url; value="  戻る  " type=button> </TD></TR></FORM></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- プルダウン切り替え様フレーム -->
+<DIV style="POSITION: absolute; VISIBILITY: hidden; TOP: 0px; LEFT: 0px"><IFRAME height=10 width=10 name=if_PullDown></IFRAME></DIV>
+<HR SIZE=1>
+
+<DIV class=small90 align=right noWrap>Copyrightc2002&nbsp;Matsushita&nbsp;Electric&nbsp;Works&nbsp;Information&nbsp;Systems,&nbsp;Co.,&nbsp;Ltd.</DIV>

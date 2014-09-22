@@ -1,0 +1,56 @@
+【php】プログラミングの際のシングルクォーテーションとダブルクォーテーションの違い
+<a href="/2014/07/phpfacebookrss.html">前回のブログ</a>を書くに当たり、
+自分の書いたソースを見てみると、
+文字列を扱うのに、
+ダブルクォーテーション「&quot;」とシングルクォーテーション「&#39;」が両方使われていました。
+
+エスケープの際に、&nbsp;&quot;&nbsp;と&nbsp;&#39;&nbsp;どちらをエスケープするか、
+程度にしか気をつけていませんでした。
+
+改めて、どう違うのか調べました。
+
+<h3>変数や改行コードが入っているかどうかで変わる</h3>
+参考にしたのは、
+<a href="http://www.24w.jp/study_contents.php?bid=php&iid=php&sid=string&cid=006" target="_blank">ダブルクォーテーション、シングルクォーテーションの違い</a>です。
+
+どうやら、文字列中の変数を値に置き換えるかどうかが違うようです。
+
+<strong>ダブルクォーテーション「&quot;」は置き換える</strong>
+<strong>シングルクォーテーション「&#39;」は置き換えない</strong>
+
+また、重要なのは、<strong>シングルクォーテーションの方が処理が速い</strong>ということです。
+
+ただ僕は変数と文字列を同じ括りの中に入れて書きません。
+ピリオド「.」で分ける形で書いています。
+
+<blockquote class="tr_bq">
+<p>$blog['title'] = $blog['type'] . '&nbsp;|&nbsp;' . mb_strimwidth($title, 0, 70, '...');</p>
+</blockquote>
+
+では全てシングルクォーテーションで良いかというと、
+そうもいきませんでした。
+
+<blockquote class="tr_bq">
+<p>echo '&lt;dt&gt;' . date('Y年n月j日',strtotime($data[$i]['date'])) . '&lt;/dt&gt;\n'</p>
+</blockquote>
+
+上記の様に全てシングルクォーテーションで書いてみると、
+表示結果はこうなりました。
+
+<blockquote class="tr_bq">
+<p>&lt;dt&gt;2014年7月29日&lt;/dt&gt;\n</p>
+</blockquote>
+
+最後の改行コードが「\n」とそのまま表示されてしまいました。
+どうやら改行コード（\nや\rなど）も置き換えられないようです。
+
+最終的には改行コードを含む場合は、ダブルクォーテーションとしました。
+
+<blockquote class="tr_bq">
+<p>echo '&lt;dt&gt;' . date('Y年n月j日',strtotime($data[$i]['date'])) . "&lt;/dt&gt;\n"</p>
+</blockquote>
+<blockquote class="tr_bq">
+<p>&lt;dt&gt;2014年7月29日&lt;/dt&gt;</p>
+</blockquote>
+
+勉強になりました。

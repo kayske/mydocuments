@@ -1,0 +1,94 @@
+.hi-icon-wrap {
+	text-align: center;
+	width: 243px;
+	height: 243px;
+	background:#f5f0cf;
+	border-radius: 50%;
+	behavior:url("0814_PIE.htc");
+}
+
+.hi-icon {
+	display: inline-block;
+	font-size: 0px;
+	cursor: pointer;
+	border-radius: 50%;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	color: #333333;
+}
+
+.hi-icon:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	content: '';
+	-webkit-box-sizing: content-box; 
+	-moz-box-sizing: content-box; 
+	box-sizing: content-box;
+}
+
+.hi-icon:before {
+	font-family: 'ecoicon';
+	speak: none;
+	font-size: 48px;
+	line-height: 90px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+.hi-icon-cog:before {
+	content: "\e003";
+}
+
+/* Effect 2 */
+.hi-icon-effect-2 .hi-icon {
+	color: #eea303;
+	box-shadow: 0 0 0 1px #37231a;
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.hi-icon-effect-2 .hi-icon:after {
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+    background:url("0814.png") no-repeat center top;
+	-webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.2s, opacity 0.2s;
+	transition: transform 0.2s, opacity 0.2s;
+}
+
+/* Effect 2a */
+.hi-icon-effect-2a .hi-icon:hover {
+	color: #eea303;
+}
+
+.hi-icon-effect-2a .hi-icon:hover:after {
+	-webkit-transform: scale(0.85);
+	-moz-transform: scale(0.85);
+	-ms-transform: scale(0.85);
+	transform: scale(0.85);
+}
+
+/* Effect 2b */
+.hi-icon-effect-2b .hi-icon:hover:after {
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.4s, opacity 0.2s;
+	transition: transform 0.4s, opacity 0.2s;
+}
+
+.hi-icon-effect-2b .hi-icon:hover {
+	color: #f5f0cf;
+}

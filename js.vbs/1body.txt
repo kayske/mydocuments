@@ -1,0 +1,20 @@
+<TABLE class=nomal border=0 cellSpacing=0 cellPadding=0 width="100%">
+<FORM name=f>
+<TBODY>
+<TR vAlign=top>
+<TD style="COLOR: white" height=40 noWrap align=right><INPUT value=池辺 type=hidden name=fOP_NAME> <INPUT value=2783 type=hidden name=fOP_ID> <IMG name=imgSTATUS alt=稼働状況 src="images/taiki.gif" width=134 height=28>
+<OBJECT name=ax_CtiControl codeBase="pbxctstg.cab#Version=11,0,0,0" classid=clsid:8A40B6CC-AD02-4375-9D93-34403024318E width=0 height=0><PARAM NAME="_ExtentX" VALUE="26"><PARAM NAME="_ExtentY" VALUE="26"><PARAM NAME="SendDataPort" VALUE="5050"><PARAM NAME="InternalPhoneDigit" VALUE="0">
+					<input type="hidden" name="ax_CtiControl" value="0"><a class="top" href="axdownload.asp" target="_blank">x</a>
+				</OBJECT>
+<SCRIPT type=text/javascript>
+				<!--
+					terminal       = "IS064228";
+					ip_addr        = "133.254.64.228";
+					ext            = "2005";
+					discrimination = "2783";
+					dept           = "サポートセンター";
+				// -->
+				</SCRIPT>
+</TD></TR>
+<TR vAlign=bottom>
+<TD height=25 noWrap>&nbsp; <A class=top onmouseover="JavaScript:window.status='トップメニューを表示します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick="JavaScript:return LoginCheck();" href="main.asp" target=fr_main>TOP</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='新規受付画面を開きます';return true;" onmouseout="JavaScript:window.status='';return true;" onclick="JavaScript:InqOpen('', '', '');" href="JavaScript:void(0);" target=_self>受付</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='受付履歴画面を表示します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick="JavaScript:InqHistoryOpen2('02');" href="JavaScript:void(0);" target=_self>受付履歴</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='未対応一覧を表示します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick="JavaScript:InqHistoryOpen2('ZZZ');" href="JavaScript:void(0);" target=_self>未対応一覧</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='ＦＡＱ検索一覧を表示します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick="JavaScript:return LoginCheck();" href="faqlist.asp" target=fr_main>ＦＡＱ検索</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='Web-Board(掲示板)を表示します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick="JavaScript:return LoginCheck();" href="material.asp" target=fr_main>WEB-Board</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='商品検索画面を表示します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick="JavaScript:return LoginCheck();" href="merchan.asp" target=fr_main>商品検索</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='顧客検索画面を表示します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick="JavaScript:return LoginCheck();" href="customer.asp" target=fr_main>顧客検索</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='システム管理メニューを表示します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick="JavaScript:return LoginCheck();" href="system_menu.asp" target=fr_main>システム管理</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='電話機のステータスを変更します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick=JavaScript:PbxNotAvail(); href="JavaScript:void(0);" target=_self>着信拒否</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='電話機のステータスを変更します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick=JavaScript:PbxSetWrapUp(); href="JavaScript:void(0);" target=_self>後処理</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='通話を保留します';return true;" onmouseout="JavaScript:window.status='';return true;" onclick=JavaScript:PbxHold(); href="JavaScript:void(0);" target=_self>保留</A>&nbsp;&nbsp; <A class=top onmouseover="JavaScript:window.status='ログアウトします';return true;" onmouseout="JavaScript:window.status='';return true;" href="logout.asp" target=fr_main>ログアウト</A>&nbsp;&nbsp; </TD></TR></FORM></TBODY></TABLE>

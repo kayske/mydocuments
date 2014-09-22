@@ -1,0 +1,7 @@
+phpmyadmin
+root
+Xmpp2014
+
+.htaccess
+kayskeikb
+Admn2014

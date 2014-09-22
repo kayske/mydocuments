@@ -1,0 +1,44 @@
+import java.io.FileReader;
+import java.io.LineNumberReader;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+
+public class LoveSeeker {
+  public static void main(String[] args) {
+    FileReader in = null;
+    LineNumberReader lnr = null;
+    FileWriter out = null;
+    BufferedWriter bw = null;
+    try {
+      in = new FileReader("C:\\java\\test.txt");
+      lnr = new LineNumberReader(in);
+
+      out = new FileWriter("C:\\java\\out.txt");
+      bw = new BufferedWriter(out);
+
+      String key = "Ç†Ç¢";
+      String line;
+      while ((line = lnr.readLine()) != null) {
+        if (line.contains(key)) {
+          bw.write(lnr.getLineNumber() + "çsñ⁄ÅF");
+          bw.newLine();
+          bw.write(line);
+          bw.newLine();
+        }
+      }
+      bw.flush();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        lnr.close();
+      } catch (Exception e) {
+      }
+      try {
+        bw.close();
+      } catch (Exception e) {
+      }
+    }
+  }
+}
